@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule, MatSelectModule,MatDatepickerModule, MatRadioModule} from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule, MatSelectModule,MatDatepickerModule, MatRadioModule, MatNativeDateModule} from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {FormsModule} from "@angular/forms";
@@ -50,7 +50,8 @@ const appRoutes: Routes =[
     FormsModule,
     MatDatepickerModule,
     MatRadioModule,
-    MatButtonModule
+    MatButtonModule,
+    MatNativeDateModule
 
   ],
   providers: [],
