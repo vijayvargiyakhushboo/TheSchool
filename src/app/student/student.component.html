@@ -1,0 +1,40 @@
+ <mat-sidenav-container>
+ 	
+<form name="studentForm" class="student-form">
+<div>
+  <mat-form-field>       
+  	<mat-icon class="icon">people</mat-icon>
+    <input matInput placeholder="Student Name" value="">
+  </mat-form-field>
+
+  <mat-form-field >
+    <mat-icon class="icon">people</mat-icon>
+    <input matInput placeholder="Father Name" value="">
+  </mat-form-field>
+
+<mat-form-field >
+    <mat-icon class="icon">people</mat-icon>
+    <input matInput placeholder="Father Name" value="">
+  </mat-form-field>
+
+  <mat-radio-group>
+  <mat-radio-button value="1">Male</mat-radio-button>
+  <mat-radio-button value="2">Female</mat-radio-button>
+</mat-radio-group>
+
+
+<mat-form-field >
+    <mat-icon class="icon">place</mat-icon>
+    <input matInput placeholder="Address" value="">
+  </mat-form-field>
+</div>
+<div>
+  <button mat-raised-button color="primary">Save</button>&nbsp;
+ <button mat-raised-button color="primary">Reset</button></div>
+</form>
+
+</mat-sidenav-container>
+   
+<router-outlet></router-outlet>
+ 
+
