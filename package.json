@@ -1,5 +1,6 @@
+//  https://docs.npmjs.com/getting-started/using-a-package.json#requirements
 {
-  "name": "Daksh International Daniyari",
+  "name": "Daksh-International-Daniyari",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
