@@ -8,7 +8,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Generate new component in app
 
-`ng generate component login`
+`ng generate component component_name`
 
 ## Code scaffolding
 
