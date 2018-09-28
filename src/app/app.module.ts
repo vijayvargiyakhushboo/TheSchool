@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule, MatSelectModule,MatDatepickerModule, MatRadioModule, MatNativeDateModule} from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule, MatSelectModule,MatDatepickerModule, MatRadioModule, MatNativeDateModule, MatCardModule, MatProgressSpinnerModule} from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {FormsModule} from "@angular/forms";
+import { LoginComponent } from './login/login.component';
 //import { MatDatepickerModule }  from "@angular/material/datepicker";
 const appRoutes: Routes =[
 {
@@ -21,13 +22,18 @@ const appRoutes: Routes =[
 {
 	path: 'student', 
     component: StudentComponent
+},
+{
+  path: 'login',
+  component: LoginComponent
 }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentComponent
+    StudentComponent,
+    LoginComponent
   ],
   imports: [
   RouterModule.forRoot(
@@ -51,7 +57,9 @@ const appRoutes: Routes =[
     MatDatepickerModule,
     MatRadioModule,
     MatButtonModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatCardModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [],
