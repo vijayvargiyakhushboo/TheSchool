@@ -6,45 +6,61 @@
         <mat-icon>menu</mat-icon>
       </button>
     </div>
-     <div>
-       <a>
-          Daksh International Daniyari
-       </a>
-     </div>
-     <div fxFlex fxLayout fxLayoutAlign="flex-end"  fxHide.xs>
-        <ul fxLayout fxLayoutGap="20px" class="navigation-items">
-            <li>
-                <a mat-list-item
-         [routerLink]="['/login']">
-                  <mat-icon class="icon">input</mat-icon>&nbsp;
-                  <span  class="label">Login</span>
-                 </a>
-            </li>
-            <li>
-              <a mat-list-item
-         [routerLink]="['/student']">
-                  <mat-icon class="icon">people</mat-icon>&nbsp;
-                  <span class="label">Student</span>
-              </a>
-            </li>
-            <li>
-                <a  mat-list-item
-         [routerLink]="['/']">
-                    <mat-icon class="icon">dashboard</mat-icon>&nbsp;
-                    <span class="label">Dashboard</span>
-                </a>
-              </li>
-            <li>
-                <a>
-                  <mat-icon class="icon">input</mat-icon>&nbsp;
-                  <span class="label">LogOut</span>
-                 </a>
-            </li>
-        </ul>
-     </div>
-    </mat-toolbar>
-    <main>
-    </main>
-  </mat-sidenav-content>
+    <div>
+     <a>
+      Daksh International Daniyari
+    </a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="flex-end"  fxHide.xs>
+    <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+      <li>
+        <a mat-list-item
+        [routerLink]="['/login']">
+        <mat-icon>input</mat-icon>&nbsp;
+        <span  class="label">Login</span>
+      </a>
+    </li>
+
+    <li [matMenuTriggerFor]="student">
+      <a mat-list-item >
+        <mat-icon class="icon">people</mat-icon>&nbsp;
+        <span class="label">Student</span>
+      </a>
+      <mat-menu #student="matMenu">
+        <button mat-menu-item [routerLink]="['/student']">Add Student</button>
+        <button mat-menu-item [routerLink]="['/student']">View Student</button>
+      </mat-menu>
+    </li>
+
+    <li [matMenuTriggerFor]="receipt">
+      <a mat-list-item >
+        <mat-icon class="icon">money</mat-icon>&nbsp;
+        <span class="label">Receipt</span>
+      </a>
+      <mat-menu #receipt="matMenu">
+        <button mat-menu-item [routerLink]="['/receipt']">Add Receipt</button>
+        <button mat-menu-item [routerLink]="['/receipt']">View Receipt</button>
+      </mat-menu>
+    </li>
+
+  <li>
+    <a  mat-list-item
+    [routerLink]="['/']">
+    <mat-icon class="icon">dashboard</mat-icon>&nbsp;
+    <span class="label">Dashboard</span>
+  </a>
+</li>
+<li>
+  <a>
+    <mat-icon class="icon">input</mat-icon>&nbsp;
+    <span class="label">LogOut</span>
+  </a>
+</li>
+</ul>
+</div>
+</mat-toolbar>
+<main>
+</main>
+</mat-sidenav-content>
 </mat-sidenav-container>
 <router-outlet></router-outlet>
