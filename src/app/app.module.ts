@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {FormsModule} from "@angular/forms";
 import { LoginComponent } from './login/login.component';
+import { ListStudentComponent } from './list-student/list-student.component';
 //import { MatDatepickerModule }  from "@angular/material/datepicker";
 const appRoutes: Routes =[
 {
@@ -26,6 +27,10 @@ const appRoutes: Routes =[
 {
   path: 'login',
   component: LoginComponent
+},
+{
+  path : 'list_student',
+  component: ListStudentComponent
 }
 ];
 
@@ -33,7 +38,8 @@ const appRoutes: Routes =[
   declarations: [
     AppComponent,
     StudentComponent,
-    LoginComponent
+    LoginComponent,
+    ListStudentComponent
   ],
   imports: [
   RouterModule.forRoot(
