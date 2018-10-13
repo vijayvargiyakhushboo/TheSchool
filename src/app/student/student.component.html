@@ -1,5 +1,5 @@
  <mat-sidenav-container>
- <form name="studentForm" class="student-form">
+ <form name="studentData" class="student-form">
 <div class="container"
      fxLayout
      fxLayout.xs="column"
@@ -9,20 +9,27 @@
   	 <mat-form-field class="navigation-items">
   	 <mat-label>Student Name</mat-label>       
   	<mat-icon matPrefix class="icon">face</mat-icon>
-    <input matInput value="">
+    <input matInput value="" name="studentName" [(ngModel)]="studentData.first_name" [ngModelOptions]="{standalone: true}">
   </mat-form-field>
   </div>
   <div class="item item-2" fxFlex="15%">
+    <mat-form-field >
+    <mat-icon matPrefix class="icon">perm_identity</mat-icon>
+    <input matInput placeholder="Last Name" value="" name="last_name" [(ngModel)]="studentData.last_name" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  </div>
+
+  <div class="item item-2" fxFlex="15%">
   	<mat-form-field >
     <mat-icon matPrefix class="icon">perm_identity</mat-icon>
-    <input matInput placeholder="Father Name" value="">
+    <input matInput placeholder="Father Name" value="" name="fatherName" [(ngModel)]="studentData.father_name" [ngModelOptions]="{standalone: true}">
   </mat-form-field>
   </div>
 
   <div class="item item-3" fxFlex="15%">
   	<mat-form-field >
     <mat-icon matPrefix class="icon">perm_identity</mat-icon>
-    <input matInput placeholder="Mother Name" value="">
+    <input matInput placeholder="Mother Name" value="" name="motherName" [(ngModel)]="studentData.mother_name" [ngModelOptions]="{standalone: true}">
   </mat-form-field>
   </div>
 </div>
@@ -36,14 +43,14 @@
   	 <mat-form-field class="navigation-items">
   	 <mat-label>Gender</mat-label>       
   	<mat-icon matPrefix class="icon">gender</mat-icon>
-    <input matInput value="">
+    <input matInput value="" name="gender" [(ngModel)]="studentData.gender" [ngModelOptions]="{standalone: true}">
   </mat-form-field>
   </div>
   <div class="item item-2" fxFlex="15%">
   	<mat-form-field >
   		 <mat-label>Address</mat-label>  
     <mat-icon matPrefix class="icon">place</mat-icon>
-        <textarea matInput placeholder=""></textarea>
+        <textarea matInput placeholder="" [(ngModel)]="studentData.address" [ngModelOptions]="{standalone: true}"></textarea>
 
   </mat-form-field>
   </div>
@@ -52,7 +59,7 @@
   	<mat-form-field >
   		 <mat-label>Phone</mat-label> 
     <mat-icon matPrefix class="icon">call</mat-icon>
-    <input matInput placeholder="Contact" value="">
+    <input matInput placeholder="Contact" value="" [(ngModel)]="studentData.contact_number" [ngModelOptions]="{standalone: true}">
   </mat-form-field>
   </div>
 
@@ -67,12 +74,12 @@
   	 <mat-form-field class="navigation-items">
   	 <mat-label>Email</mat-label>       
   	<mat-icon matPrefix class="icon">email</mat-icon>
-    <input matInput value="">
+    <input matInput value=""  [(ngModel)]="studentData.email" [ngModelOptions]="{standalone: true}">
   </mat-form-field>
   </div>
   <div class="item item-2" fxFlex="15%">
   	<mat-form-field >
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="studentData.dob" [ngModelOptions]="{standalone: true}">
   <mat-datepicker-toggle matPrefix [for]="picker">
     
   </mat-datepicker-toggle>
@@ -83,7 +90,7 @@
   <div class="item item-3" fxFlex="15%">
   	<mat-form-field >
     <mat-icon matPrefix class="icon">book</mat-icon>
-    <mat-select placeholder="Class"  name="class">
+    <mat-select placeholder="Class"  name="class" [(ngModel)]="studentData.class" [ngModelOptions]="{standalone: true}">
       <mat-option value="First">First</mat-option>
       <mat-option value="Second">Second</mat-option>
     </mat-select>
@@ -99,7 +106,7 @@
      fxLayoutGap="10px"
      fxLayoutGap.xs="0">
   <div class="button-row">
-  	 <button mat-stroked-button color="primary">Save</button>
+  	 <button mat-stroked-button color="primary" (click)="submitStudent(studentData)">Save</button>
   	  <button mat-raised-button color="primary">Reset</button>
 
   </div>

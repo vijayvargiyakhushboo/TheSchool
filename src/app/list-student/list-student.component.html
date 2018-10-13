@@ -1,3 +1,63 @@
-<p>
-  list-student works!
-</p>
+
+  
+  	
+<!-- <mat-card fxLayoutAlign="center" [style.backgroundColor]="'#7986cb'" [style.color]="'#FFFF'">Student List</mat-card>
+
+<mat-toolbar>
+<div fxFlex >
+    <div fxLayout fxLayoutGap="40px" class="navigation-items">
+      
+        <span  class="label" style="width:80px;">First Name</span><mat-divider [vertical]="true"></mat-divider>
+        <span  class="label" style="width:80px;">Father Name</span><mat-divider [vertical]="true"></mat-divider>
+        <span  class="label" style="width:80px;">Mother Name</span><mat-divider [vertical]="true"></mat-divider>
+    </div><mat-divider></mat-divider>
+    <div  *ngFor="let student of studentList" fxLayout fxLayoutGap="40px" class="navigation-items">
+      
+        <span  class="label">{{ student.first_name }} {{ student.last_name }}</span><mat-divider [vertical]="true"></mat-divider>
+        <span  class="label">{{ student.father_name }}</span><mat-divider [vertical]="true"></mat-divider>
+        <span  class="label">{{ student.mother_name }}</span><mat-divider [vertical]="true"></mat-divider>
+    </div>
+</div>
+</mat-toolbar>
+ -->
+
+<mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="first_name">
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-cell *matCellDef="let element ">{{element[first_name]}} 
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="father_name">
+            <mat-header-cell *matHeaderCellDef>Father Name</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{element[father_name]}} 
+            </mat-cell>
+        </ng-container>
+
+         <ng-container matColumnDef="mother_name">
+            <mat-header-cell *matHeaderCellDef>Mother Name</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{element[mother_name]}} 
+            </mat-cell>
+        </ng-container>
+
+         <ng-container matColumnDef="class">
+            <mat-header-cell *matHeaderCellDef>Class</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{element[class]}} 
+            </mat-cell>
+        </ng-container>
+
+         <ng-container matColumnDef="dob">
+            <mat-header-cell *matHeaderCellDef>DOB</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{element[dob]}} 
+            </mat-cell>
+        </ng-container>
+
+        
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+
+
