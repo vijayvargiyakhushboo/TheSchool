@@ -37,5 +37,9 @@ constructor(private  httpClient:  HttpClient)
      const body = JSON.stringify({"fn": 'selectAll', "params": ["class"]});
       return  this.httpClient.post(`${this.API_URL}`,body, httpOptions)
   }
+  getRollNumber(classId){
+     //const body = JSON.stringify({"fn": 'selectMaxRollNumber', "params": ["class"]});
+      return  this.httpClient.post(`${this.API_URL}`,classId, httpOptions)
+  }
 };
 

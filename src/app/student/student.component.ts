@@ -20,18 +20,29 @@ export class StudentComponent implements OnInit {
 
   ngOnInit() {
   }
+
   submitStudent(form: NgForm) {
   	if(form.invalid){
   		return;
   	}
   	let keys = Object.keys(form.form.controls);
+  	form.value.dob = (form.value.dob).toString();
 	let values = Object.values(form.value);
-
-  	var studentObj = {"fn": "insert","params": ["students",keys,values]};
-   	this.rest.postStudent(studentObj).subscribe((response) => {
-   		console.log("Success response: ",response);
+	let classValue = Object.values(form.value.class) ;
+	var studentObj;
+	keys.push('roll_number');
+	let rollNumberObj = {"fn": "selectMaxRollNumber","params":["students","class",classValue ]};
+		this.rest.getRollNumber(rollNumberObj).subscribe((response) => {
+   		if(response[0]['roll_number'] == null || response[0]['roll_number'] == 'undefined'){
+         values.push(1);
+   		}else{
+   			values.push(response[0]['roll_number']);
+   		}
+   	   studentObj = {"fn": "insert","params": ["students",keys,values]};
+   	   	this.rest.postStudent(studentObj).subscribe((response) => {
    		alert("Student added.");
   	});
-  }
+  	});
+}
 
 }
