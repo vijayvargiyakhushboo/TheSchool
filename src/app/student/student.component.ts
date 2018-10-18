@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService} from '../rest.service';
 import { FormControl,NgForm,Validators } from '@angular/forms';
+import { CLASSES } from '../class';
+
 
 @Component({
   selector: 'app-student',
@@ -9,13 +11,13 @@ import { FormControl,NgForm,Validators } from '@angular/forms';
 })
 export class StudentComponent implements OnInit {
 	studentData: any = {};
-	classData;
+	classData = CLASSES ;
 
   constructor(public rest:RestService) { 
-  	this.rest.getClasses().subscribe((response) => {
+  	/*this.rest.getClasses().subscribe((response) => {
     console.log("res KV class: ",response);
     this.classData = response;
-    });
+    });*/
   }
 
   ngOnInit() {
