@@ -14,7 +14,7 @@ export interface DialogData {
 export class ListStudentComponent implements OnInit {
 studentList;
 dataSource ;
-displayedColumns = ['first_name','father_name','mother_name','class','dob','id'];
+displayedColumns = ['roll_number','first_name','father_name','mother_name','class','dob','id'];
 
   constructor( public rest: RestService, public dialog: MatDialog) {
     
