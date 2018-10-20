@@ -9,13 +9,14 @@ import { StudentComponent } from './student/student.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule, MatSelectModule,MatDatepickerModule, MatRadioModule, MatNativeDateModule, MatCardModule, MatProgressSpinnerModule, MatMenuModule,MatTabsModule} from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule, MatSelectModule,MatDatepickerModule, MatRadioModule, MatNativeDateModule, MatCardModule, MatProgressSpinnerModule, MatMenuModule,MatTabsModule,MatTooltipModule} from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {FormsModule} from "@angular/forms";
 import { LoginComponent } from './login/login.component';
-import { ListStudentComponent } from './list-student/list-student.component';
+import { ListStudentComponent,DialogContent } from './list-student/list-student.component';
 import {MatTableModule} from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 
 //import { MatDatepickerModule }  from "@angular/material/datepicker";
 const appRoutes: Routes =[
@@ -44,7 +45,8 @@ const appRoutes: Routes =[
     AppComponent,
     StudentComponent,
     LoginComponent,
-    ListStudentComponent
+    ListStudentComponent,
+    DialogContent
   ],
   imports: [
   RouterModule.forRoot(
@@ -74,10 +76,13 @@ const appRoutes: Routes =[
     MatMenuModule,
     HttpClientModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    MatTooltipModule,
+    MatDialogModule
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogContent]
 })
 export class AppModule { }

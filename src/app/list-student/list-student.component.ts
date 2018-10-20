@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import { RestService } from '../rest.service';
-import { MatTableDataSource } from '@angular/material';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 
+export interface DialogData {
+  studentId;
+}
 
 @Component({
   selector: 'app-list-student',
@@ -10,10 +13,10 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class ListStudentComponent implements OnInit {
 studentList;
-dataSource = new MatTableDataSource();
-displayedColumns = ['first_name','father_name','mother_name','class','dob'];
+dataSource ;
+displayedColumns = ['first_name','father_name','mother_name','class','dob','id'];
 
-  constructor( public rest: RestService) {
+  constructor( public rest: RestService, public dialog: MatDialog) {
     
   var student = {
   "fn":"selectAll",
@@ -21,20 +24,43 @@ displayedColumns = ['first_name','father_name','mother_name','class','dob'];
   }
 this.rest.getStudents().subscribe((response) => {
     console.log("res KV: ",response);
-    this.dataSource = new MatTableDataSource(this.studentList);
-
+    this.dataSource = response ;
     this.studentList = response;
-     console.log("res KV2: ",this.studentList);
 });
  }
+ openDialog(studentData) {
+   console.log("studentData: "+studentData.id);
+    const dialogRef = this.dialog.open(DialogContent, {
+      data: {
+        studentId: studentData.id
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
   ngOnInit() {
   }
 
-  //createContact(){
+}
 
-
-
-//};
-
+@Component({
+  selector: 'dialog-content-example-dialog',
+  templateUrl: 'delete_dialog.html',
+})
+export class DialogContent {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData,public rest: RestService) {}
+  deleteStudent(id) {
+   console.log("delete : "+id);
+   let  studentObj = {"fn": "deleteRowById","params": ["students",id]};
+     this.rest.postStudent(studentObj).subscribe((response) => {
+       alert("Student deleted.");
+       this.rest.getStudents().subscribe((response) => {
+    console.log("res KV: ",response);
+    
+});
+    });
+  }
 }
