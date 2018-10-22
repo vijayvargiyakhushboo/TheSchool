@@ -39,10 +39,11 @@
 
         <ng-container matColumnDef="id">
             <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
-            <mat-cell *matCellDef="let element"><mat-icon  matTooltip="Edit Student" matPrefix class="icon">edit</mat-icon> <mat-icon (click)="openDialog(element)" matTooltip="Delete Student" matPrefix class="icon">delete</mat-icon>  
+            <mat-cell [routerLink]="['/student',element.id]" *matCellDef="let element"><mat-icon  matTooltip="Edit Student" matPrefix class="icon">edit</mat-icon> <mat-icon (click)="openDialog(element)" matTooltip="Delete Student" matPrefix class="icon">delete</mat-icon>  
             </mat-cell>
         </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
+<router-outlet></router-outlet>

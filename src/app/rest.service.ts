@@ -38,8 +38,10 @@ constructor(private  httpClient:  HttpClient)
       return  this.httpClient.post(`${this.API_URL}`,body, httpOptions)
   }
   getRollNumber(classId){
-     //const body = JSON.stringify({"fn": 'selectMaxRollNumber', "params": ["class"]});
       return  this.httpClient.post(`${this.API_URL}`,classId, httpOptions)
+  }
+  getStudentsById(body){
+      return  this.httpClient.post(`${this.API_URL}`,body, httpOptions)
   }
 };
 
