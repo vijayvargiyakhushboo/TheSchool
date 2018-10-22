@@ -21,23 +21,23 @@
       </a>
     </li>
 
-    <li [matMenuTriggerFor]="student">
-      <a mat-list-item >
+    <li [matMenuTriggerFor]="student"  #matMenuTrigger1="matMenuTrigger">
+      <a mat-list-item (mouseenter)="matMenuTrigger1.openMenu()">
         <mat-icon class="icon">people</mat-icon>&nbsp;
         <span class="label">Student</span>
       </a>
-      <mat-menu #student="matMenu">
+      <mat-menu #student="matMenu" (mouseleave)="matMenuTrigger1.closeMenu()" [overlapTrigger]="false">
         <button mat-menu-item [routerLink]="['/student']">Add Student</button>
         <button mat-menu-item [routerLink]="['/liststudent']">View Student</button>
       </mat-menu>
     </li>
 
-    <li [matMenuTriggerFor]="receipt">
-      <a mat-list-item >
+    <li [matMenuTriggerFor]="receipt" #matMenuTrigger2="matMenuTrigger">
+      <a mat-list-item (mouseenter)="matMenuTrigger2.openMenu()">
         <mat-icon class="icon">money</mat-icon>&nbsp;
         <span class="label">Receipt</span>
       </a>
-      <mat-menu #receipt="matMenu">
+      <mat-menu #receipt="matMenu" (mouseleave)="matMenuTrigger2.closeMenu()" [overlapTrigger]="false">
         <button mat-menu-item [routerLink]="['/receipt']">Add Receipt</button>
         <button mat-menu-item [routerLink]="['/receiptView']">View Receipt</button>
       </mat-menu>

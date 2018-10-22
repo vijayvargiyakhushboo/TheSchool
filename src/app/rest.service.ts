@@ -33,5 +33,15 @@ constructor(private  httpClient:  HttpClient)
   postStudent(studentData) {
     return this.httpClient.post(`${this.API_URL}`,studentData, httpOptions)
   }
+  getClasses(){
+     const body = JSON.stringify({"fn": 'selectAll', "params": ["class"]});
+      return  this.httpClient.post(`${this.API_URL}`,body, httpOptions)
+  }
+  getRollNumber(classId){
+      return  this.httpClient.post(`${this.API_URL}`,classId, httpOptions)
+  }
+  getStudentsById(body){
+      return  this.httpClient.post(`${this.API_URL}`,body, httpOptions)
+  }
 };
 
