@@ -20,6 +20,7 @@ import { ReceiptComponent } from './receipt/receipt.component';
 import { ReceiptviewComponent } from './receiptview/receiptview.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BooksComponent } from './books/book.component';
+import { ListBookComponent } from './books/viewBook.component';
 
 //import { MatDatepickerModule }  from "@angular/material/datepicker";
 const appRoutes: Routes =[
@@ -52,6 +53,10 @@ const appRoutes: Routes =[
 {
   path : 'bookAdd',
   component: BooksComponent
+},
+{
+  path : 'bookView',
+  component: ListBookComponent
 }
 ];
 
@@ -64,7 +69,8 @@ const appRoutes: Routes =[
     ReceiptComponent,
     ReceiptviewComponent,
     DialogContent,
-    BooksComponent
+    BooksComponent,
+    ListBookComponent
   ],
   imports: [
   RouterModule.forRoot(

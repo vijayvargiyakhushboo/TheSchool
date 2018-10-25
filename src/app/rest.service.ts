@@ -29,6 +29,10 @@ constructor(private  httpClient:  HttpClient)
 		 const body = JSON.stringify({"fn": 'selectAll', "params": ["students"]});
 	    return  this.httpClient.post(`${this.API_URL}`,body, httpOptions)
 	}
+  getBooks(){
+		 const body = JSON.stringify({"fn": 'selectAll', "params": ["books"]});
+	    return  this.httpClient.post(`${this.API_URL}`,body, httpOptions)
+	}
 
   postStudent(studentData) {
     return this.httpClient.post(`${this.API_URL}`,studentData, httpOptions)
