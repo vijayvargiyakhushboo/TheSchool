@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
- 
+
 import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
 
@@ -19,6 +19,7 @@ import {MatTableModule} from '@angular/material/table';
 import { ReceiptComponent } from './receipt/receipt.component';
 import { ReceiptviewComponent } from './receiptview/receiptview.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { BooksComponent } from './books/book.component';
 
 //import { MatDatepickerModule }  from "@angular/material/datepicker";
 const appRoutes: Routes =[
@@ -29,7 +30,7 @@ const appRoutes: Routes =[
     //component: AppComponent
 },
 {
-	path: 'student', 
+	path: 'student',
     component: StudentComponent
 },
 {
@@ -47,6 +48,10 @@ const appRoutes: Routes =[
 {
   path : 'receiptView',
   component: ReceiptviewComponent
+},
+{
+  path : 'bookAdd',
+  component: BooksComponent
 }
 ];
 
@@ -58,12 +63,13 @@ const appRoutes: Routes =[
     ListStudentComponent,
     ReceiptComponent,
     ReceiptviewComponent,
-    DialogContent
+    DialogContent,
+    BooksComponent
   ],
   imports: [
   RouterModule.forRoot(
   	appRoutes,
-  	{ 
+  	{
   		enableTracing: true }
   	),
     BrowserModule,

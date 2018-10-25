@@ -23,7 +23,7 @@ const httpOptions = {
 
 export class RestService {
  API_URL  =  'http://localhost:5001/sql';
-constructor(private  httpClient:  HttpClient) 
+constructor(private  httpClient:  HttpClient)
  {}
 	getStudents(){
 		 const body = JSON.stringify({"fn": 'selectAll', "params": ["students"]});
@@ -32,6 +32,9 @@ constructor(private  httpClient:  HttpClient)
 
   postStudent(studentData) {
     return this.httpClient.post(`${this.API_URL}`,studentData, httpOptions)
+  }
+  postBook(bookData) {
+    return this.httpClient.post(`${this.API_URL}`,bookData, httpOptions)
   }
   getClasses(){
      const body = JSON.stringify({"fn": 'selectAll', "params": ["class"]});
@@ -44,4 +47,3 @@ constructor(private  httpClient:  HttpClient)
       return  this.httpClient.post(`${this.API_URL}`,body, httpOptions)
   }
 };
-
