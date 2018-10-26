@@ -31,6 +31,6 @@ export class BooksComponent implements OnInit {
 	var bookObj = {"fn": "insert","params": ["books",keys,values]};
    	   	this.rest.postBook(bookObj).subscribe((response) => {
    		alert("Book Added.");
-  	});
-  	}
+      });
+    }
 }
