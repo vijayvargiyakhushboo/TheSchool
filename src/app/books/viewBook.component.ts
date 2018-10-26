@@ -19,7 +19,7 @@ displayedColumns = ['id','book_title','author_name','publication','course_book']
   }
 this.rest.getBooks().subscribe((response) => {
     this.dataSource = response ;
-    this.studentList = response;
+    this.bookList = response;
 });
  }
   ngOnInit() {
