@@ -79,7 +79,7 @@ const appRoutes: Routes =[
     ListStudentComponent,
 
     DialogContent,
-    EditStudentComponent
+    EditStudentComponent,
 
     ReceiptComponent,
     ReceiptviewComponent,
