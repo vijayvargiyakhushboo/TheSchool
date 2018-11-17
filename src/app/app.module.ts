@@ -17,6 +17,9 @@ import { LoginComponent } from './login/login.component';
 import { ListStudentComponent,DialogContent } from './list-student/list-student.component';
 import {MatTableModule} from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
+import { EditStudentComponent } from './edit-student/edit-student.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 //import { MatDatepickerModule }  from "@angular/material/datepicker";
 const appRoutes: Routes =[
@@ -37,7 +40,11 @@ const appRoutes: Routes =[
 {
   path : 'list_student',
   component: ListStudentComponent
+},
+{ path: 'student/:id', 
+  component: EditStudentComponent 
 }
+
 ];
 
 @NgModule({
@@ -46,7 +53,8 @@ const appRoutes: Routes =[
     StudentComponent,
     LoginComponent,
     ListStudentComponent,
-    DialogContent
+    DialogContent,
+    EditStudentComponent
   ],
   imports: [
   RouterModule.forRoot(
@@ -78,7 +86,8 @@ const appRoutes: Routes =[
     MatTabsModule,
     MatTableModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule
 
   ],
   providers: [],

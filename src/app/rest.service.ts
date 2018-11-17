@@ -43,5 +43,8 @@ constructor(private  httpClient:  HttpClient)
   getStudentsById(body){
       return  this.httpClient.post(`${this.API_URL}`,body, httpOptions)
   }
+  postEditStudent(editStudentData){
+      return this.httpClient.post(`${this.API_URL}`,editStudentData,httpOptions)
+  }
 };
 
