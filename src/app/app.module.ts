@@ -19,8 +19,14 @@ import {MatTableModule} from '@angular/material/table';
 import { ReceiptComponent } from './receipt/receipt.component';
 import { ReceiptviewComponent } from './receiptview/receiptview.component';
 import { MatDialogModule } from '@angular/material/dialog';
+
+import { EditStudentComponent } from './edit-student/edit-student.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+
+
 import { BooksComponent } from './books/book.component';
 import { ListBookComponent } from './books/viewBook.component';
+
 
 //import { MatDatepickerModule }  from "@angular/material/datepicker";
 const appRoutes: Routes =[
@@ -42,6 +48,10 @@ const appRoutes: Routes =[
   path : 'liststudent',
   component: ListStudentComponent
 },
+
+{ path: 'student/:id', 
+  component: EditStudentComponent 
+},
 {
   path : 'receipt',
   component: ReceiptComponent
@@ -58,6 +68,7 @@ const appRoutes: Routes =[
   path : 'bookView',
   component: ListBookComponent
 }
+
 ];
 
 @NgModule({
@@ -66,11 +77,16 @@ const appRoutes: Routes =[
     StudentComponent,
     LoginComponent,
     ListStudentComponent,
+
+    DialogContent,
+    EditStudentComponent,
+
     ReceiptComponent,
     ReceiptviewComponent,
     DialogContent,
     BooksComponent,
     ListBookComponent
+
   ],
   imports: [
   RouterModule.forRoot(
@@ -102,7 +118,8 @@ const appRoutes: Routes =[
     MatTabsModule,
     MatTableModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule
 
   ],
   providers: [],
