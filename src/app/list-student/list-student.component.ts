@@ -1,6 +1,7 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { RestService } from '../rest.service';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
+import { Router } from '@angular/router';
 
 export interface DialogData {
   studentId;
@@ -51,7 +52,7 @@ this.rest.getStudents().subscribe((response) => {
   templateUrl: 'delete_dialog.html',
 })
 export class DialogContent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData,public rest: RestService) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData,public rest: RestService,private router: Router) {}
   deleteStudent(id) {
    console.log("delete : "+id);
    let  studentObj = {"fn": "deleteRowById","params": ["students",id]};
@@ -61,6 +62,7 @@ export class DialogContent {
     console.log("res KV: ",response);
     
 });
+       this.router.navigate(['/liststudent']);
     });
   }
 }

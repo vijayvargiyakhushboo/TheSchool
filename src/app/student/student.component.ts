@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestService} from '../rest.service';
 import { FormControl,NgForm,Validators } from '@angular/forms';
 import { CLASSES } from '../class';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class StudentComponent implements OnInit {
 	studentData: any = {};
 	classData = CLASSES ;
 
-  constructor(public rest:RestService,private route: ActivatedRoute) { 
+  constructor(public rest:RestService,private route: ActivatedRoute,private router: Router) { 
   	/*this.rest.getClasses().subscribe((response) => {
     console.log("res KV class: ",response);
     this.classData = response;
@@ -48,6 +48,7 @@ export class StudentComponent implements OnInit {
    	  studentObj = {"fn": "insert","params": ["students",keys,values]};
    	   	this.rest.postStudent(studentObj).subscribe((response) => {
    		    alert("Student added.");
+           this.router.navigate(['/liststudent']);
   	  });
   	});
 }
