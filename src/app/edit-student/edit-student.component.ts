@@ -4,6 +4,8 @@ import { RestService } from '../rest.service';
 import { ActivatedRoute } from '@angular/router';
 import { CLASSES } from '../class';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-edit-student',
@@ -17,7 +19,7 @@ export class EditStudentComponent implements OnInit {
     editStudentData;
     classData = CLASSES ;
 
-  constructor(public rest: RestService,private route:  ActivatedRoute) { }
+  constructor(public rest: RestService,private route:  ActivatedRoute,private router: Router) { }
 
   ngOnInit() {
   	this.sub = this.route.params.subscribe(params => {
@@ -49,6 +51,7 @@ export class EditStudentComponent implements OnInit {
     editStudentObj = {"fn": "update","params":["students",keys,values,'id',this.studentId]};
     this.rest.postEditStudent(editStudentObj).subscribe((response) => {
     alert("Student updated.");
+    this.router.navigate(['/liststudent']);
     });
 }
 
