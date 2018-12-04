@@ -55,4 +55,8 @@ export class EditStudentComponent implements OnInit {
     });
 }
 
+goto(){
+  this.router.navigate(['/liststudent']);
+}
+
 }
