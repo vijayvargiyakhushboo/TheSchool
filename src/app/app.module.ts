@@ -6,6 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
+import { LoginComponent } from './login/login.component';
+import { BooksComponent } from './books/book.component';
+import { ListBookComponent } from './books/viewBook.component';
+import { ReceiptComponent } from './receipt/receipt.component';
+import { ReceiptviewComponent } from './receiptview/receiptview.component';
+import { RestService } from './rest.service';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,28 +19,27 @@ import { MatButtonModule, MatCheckboxModule, MatIconModule, MatSidenavModule, Ma
 import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {FormsModule} from "@angular/forms";
-import { LoginComponent } from './login/login.component';
+
 import { ListStudentComponent,DialogContent } from './list-student/list-student.component';
-import {MatTableModule} from '@angular/material/table';
-import { ReceiptComponent } from './receipt/receipt.component';
-import { ReceiptviewComponent } from './receiptview/receiptview.component';
+import { MatTableModule} from '@angular/material/table';
+
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 
 
-import { BooksComponent } from './books/book.component';
-import { ListBookComponent } from './books/viewBook.component';
+
 
 
 //import { MatDatepickerModule }  from "@angular/material/datepicker";
 const appRoutes: Routes =[
 {
-	path: '',
+	/*path: '',
 	redirectTo: '/',
-    pathMatch: 'full'
-    //component: AppComponent
+  pathMatch: 'full'*/
+  path: '',
+  component: LoginComponent
 },
 {
 	path: 'student',
