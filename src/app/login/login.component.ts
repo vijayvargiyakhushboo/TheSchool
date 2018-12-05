@@ -23,7 +23,7 @@ getLoggedIn(form:NgForm){
 
 	if(response[0].user_email == value[0] && response[0].password == value[1] ){
 		alert("success login");
-		this.router.navigateByUrl('/liststudent');
+		this.router.navigateByUrl('/home');
 	}else{
 		console.log("login failed");
 	    //this.router.navigate(['./login']);

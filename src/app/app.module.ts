@@ -27,6 +27,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -72,7 +73,11 @@ const appRoutes: Routes =[
 {
   path : 'bookView',
   component: ListBookComponent
-}
+},
+{
+  path : 'home',
+  component: HomeComponent
+},
 
 ];
 
@@ -90,7 +95,8 @@ const appRoutes: Routes =[
     ReceiptviewComponent,
     DialogContent,
     BooksComponent,
-    ListBookComponent
+    ListBookComponent,
+    HomeComponent
 
   ],
   imports: [
