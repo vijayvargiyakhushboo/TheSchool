@@ -90,7 +90,7 @@
              <mat-form-field>
               <mat-icon matPrefix class="icon">email</mat-icon>
              <input matInput placeholder="Username" ngModel name="username" #username="ngModel" minlength="5" required>
-             <mat-error *ngIf="username.invalid">Please enter last name.</mat-error>
+             <mat-error *ngIf="username.invalid">Please enter user name.</mat-error>
              </mat-form-field>
            </td>
          </tr>
@@ -98,6 +98,7 @@
          <td><mat-form-field>
           <mat-icon matPrefix class="icon">lock</mat-icon>
            <input matInput placeholder="Password" ngModel type="password" name="password" #password="ngModel" required>
+            <mat-error *ngIf="password.invalid">Please enter password.</mat-error>
          </mat-form-field></td>
        </tr></table>
      

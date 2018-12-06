@@ -15,9 +15,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 getLoggedIn(form:NgForm){
+	if(form.invalid){
+		return;
+	}
 	let value = Object.values(form.value);
   	let  loginObj = { "fn": "selectLoginInfo","params": ["login", value[0], value[1]] };
   	this.api.postLogin(loginObj).subscribe((response)=>{
+  	console.log(value[0]+" "+value[1]);
 	console.log("response: ",response[0]);
 	//console.log("response: "+response[0].id);
 
