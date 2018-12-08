@@ -23,11 +23,13 @@ import {FormsModule} from "@angular/forms";
 import { ListStudentComponent,DialogContent } from './list-student/list-student.component';
 import { MatTableModule} from '@angular/material/table';
 
+
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { HomeComponent } from './home/home.component';
+import { AttendanceComponent } from './student/attendance.component';
 
 
 
@@ -78,6 +80,10 @@ const appRoutes: Routes =[
   path : 'home',
   component: HomeComponent
 },
+{
+  path : 'attendance',
+  component: AttendanceComponent
+}
 
 ];
 
@@ -96,7 +102,8 @@ const appRoutes: Routes =[
     DialogContent,
     BooksComponent,
     ListBookComponent,
-    HomeComponent
+    HomeComponent,
+    AttendanceComponent
 
   ],
   imports: [

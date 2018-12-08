@@ -29,6 +29,7 @@
      <mat-menu #student="matMenu" (mouseleave)="matMenuTrigger1.closeMenu()" [overlapTrigger]="false">
        <button mat-menu-item [routerLink]="['/student']">Add Student</button>
        <button mat-menu-item [routerLink]="['/liststudent']">View Student</button>
+       <button mat-menu-item [routerLink]="['/attendance']">Attendance</button>
      </mat-menu>
    </li>
    <li [matMenuTriggerFor]="books"  #matMenuTrigger3="matMenuTrigger">
