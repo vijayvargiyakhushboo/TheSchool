@@ -1,6 +1,7 @@
 import { Component, OnChanges } from '@angular/core';
 import { CLASSES } from '../class';
 import { FormControl,NgForm,Validators } from '@angular/forms';
+import { RestService } from '../rest.service';
 
 @Component({
 	selector:'app-attendance',
@@ -12,16 +13,27 @@ export class AttendanceComponent implements OnChanges {
 
 classData = CLASSES;
 displayedColumns = ['roll_number','first_name','last_name','present','absent','leave'];
-constructor(){
+classId;
+studentData;
+
+constructor(public rest:RestService){
  console.log("class:",this.classData);	
+};
+
+public getClassName(id): void {  
+    console.log("class id: "+id);
+    let classObj = {"fn": "selectAllById","params": ["students",['class'],[id]] };
+    this.rest.getStudentsById(classObj).subscribe((response) => {
+		 console.log("res KV: ",response);
+		 this.studentData = response;
+	});
 }
 
-getClassName(events) {  // event will give you full breif of action
-    console.log("sdfjl: ",events);
+public getDate(date): void {
+	console.log("date:",date);
 }
 
-getDate(date){
-  	console.log("date:",date);
+submitAttendance(form:NgForm){
+	console.log("att form: ",form);
 }
-
 }

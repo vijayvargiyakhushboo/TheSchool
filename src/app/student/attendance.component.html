@@ -24,8 +24,8 @@
   </div>
 </div>
 
-
-<mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
+ <form name="attendanceData" (submit)="submitAttendance(postForm); postForm.reset()" #postForm="ngForm" class="student-form">
+<mat-table #table [dataSource]="studentData" class="mat-elevation-z8">
 
   <!-- Position Column -->
   <ng-container matColumnDef="roll_number">
@@ -49,17 +49,17 @@
   <!-- Weight Column -->
   <ng-container matColumnDef="present">
     <mat-header-cell  *matHeaderCellDef> Present </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.present | titlecase }} </mat-cell>
+    <mat-cell *matCellDef="let element"> <mat-radio-button name="action" value="P"></mat-radio-button> </mat-cell>
   </ng-container>
 
    <ng-container matColumnDef="absent">
     <mat-header-cell  *matHeaderCellDef> Absent </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.absent | titlecase }} </mat-cell>
+    <mat-cell *matCellDef="let element"> <mat-radio-button name="action" value="A"></mat-radio-button> </mat-cell>
   </ng-container>
 
    <ng-container matColumnDef="leave">
     <mat-header-cell  *matHeaderCellDef> Leave </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.leave | titlecase }} </mat-cell>
+    <mat-cell *matCellDef="let element"> <mat-radio-button name="action" value="L"></mat-radio-button> </mat-cell>
   </ng-container>
 
  
@@ -67,4 +67,16 @@
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
+<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="left"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+<div class="button-row">
+  	 <button type="submit" mat-stroked-button color="primary">Save</button>
+  	  <button mat-raised-button color="primary">Reset</button>
+
+  </div></div>
+</form>
 </mat-sidenav-container>
