@@ -29,7 +29,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { HomeComponent } from './home/home.component';
-import { AttendanceComponent } from './student/attendance.component';
+import { AttendanceComponent } from './attendance/attendance.component';
 
 
 
