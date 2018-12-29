@@ -13,7 +13,11 @@ export class AttendanceComponent {
   classData = CLASSES;
 displayedColumns = ['roll_number','first_name','last_name','present','absent','leave'];
 classId;
-studentData;
+studentData: any = [];
+present: string = 'P';
+absent: string = 'A';
+leave: string = 'L';
+
 
 constructor(public rest:RestService){
  console.log("class:",this.classData);	
@@ -34,6 +38,12 @@ public getDate(date): void {
 
 submitAttendance(form:NgForm){
 	console.log("att form: ",form);
+	 let keys = Object.keys(form.controls);
+    //form.value.dob = (form.value.dob).toString();
+    let values = Object.values(form.value);
+    //let classValue = Object.values(form.value.class) ;
+    console.log("keys: ",keys);
+    console.log("values: ",values);
 }
 }
 
