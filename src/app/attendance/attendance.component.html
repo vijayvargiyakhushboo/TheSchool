@@ -1,5 +1,4 @@
 <app-home></app-home>
-<!-- <p>Attendance works</p> -->
 <mat-sidenav-container>
 <div class="container"
      fxLayout
@@ -17,7 +16,6 @@
 </div>
 
  <form name="attendanceData" (submit)="submitAttendance(postForm);" #postForm="ngForm" class="student-form">
-
   <table style="width:100%" >
    <thead> <tr>
       <td>Roll Number</td>
@@ -29,71 +27,26 @@
     </tr>
   </thead>
     <tr *ngFor="let student of studentData;let i = index;">
-      <td><mat-form-field>
-        <input  matInput name="roll_number{{i}}" [(ngModel)]="student.roll_number"    #roll_number{{i}}="ngModel">
-</mat-form-field></td>
-<td><mat-form-field>
-        <input  matInput name="first_name{{i}}" [(ngModel)]="student.first_name"  #first_name{{i}}="ngModel">
-</mat-form-field></td>
-<td><mat-form-field>
-        <input  matInput name="last_name{{i}}" [(ngModel)]="student.last_name" #last_name{{i}}="ngModel">
-</mat-form-field></td>
-<td>
-  <mat-radio-button  name="action{{i}}" [(ngModel)]="present" ></mat-radio-button> 
-</td>
-<td>
-        <mat-radio-button  name="action{{i}}" [(ngModel)]="absent"></mat-radio-button> 
-</td>
-<td>
-        <mat-radio-button  name="action{{i}}" [(ngModel)]="leave" ></mat-radio-button> 
-</td>
-
+    <td><mat-form-field>
+    <input  matInput name="roll_number{{i}}" [(ngModel)]="student.roll_number"    #roll_number{{i}}="ngModel">
+    </mat-form-field></td>
+    <td><mat-form-field>
+            <input  matInput name="first_name{{i}}" [(ngModel)]="student.first_name"  #first_name{{i}}="ngModel">
+    </mat-form-field></td>
+    <td><mat-form-field>
+            <input  matInput name="last_name{{i}}" [(ngModel)]="student.last_name" #last_name{{i}}="ngModel">
+    </mat-form-field></td>
+    <td>
+    <mat-radio-button  name="action{{i}}" [(ngModel)]="student.action"  #action{{i}}="ngModel" (click)='onRadioClick(i,"P")' ></mat-radio-button> 
+    </td>
+    <td>
+          <mat-radio-button  name="action{{i}}" [(ngModel)]="student.action" #action{{i}}="ngModel" (click)='onRadioClick(i,"A")'></mat-radio-button> 
+    </td>
+    <td>
+          <mat-radio-button  name="action{{i}}" [(ngModel)]="student.action" #action{{i}}="ngModel" (click)='onRadioClick(i,"L")'></mat-radio-button> 
+    </td>
     </tr>
   </table>
-<!-- <mat-table #table [dataSource]="studentData" class="mat-elevation-z8">
-
-  Position Column
-  <ng-container matColumnDef="roll_number">
-            <mat-header-cell *matHeaderCellDef>Roll Number</mat-header-cell>
-            <mat-cell *matCellDef="let element;let i = index">
-            <input matInput name="roll_number[i]" value="{{ element.roll_number }}" required minlength="5"  >
-            </mat-cell>
-        </ng-container>
-
-  <ng-container matColumnDef="first_name">
-            <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
-            <mat-cell *matCellDef="let firstname ">
-              <input matInput name="first_name" value="{{ firstname.first_name }}" required minlength="5">
-            </mat-cell>
-        </ng-container>
-
-  Name Column
-  <ng-container matColumnDef="last_name">
-    <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
-    <mat-cell *matCellDef="let element" (ngModel)="element.last_name" > {{element.last_name | titlecase }} </mat-cell>
-  </ng-container>
-
-  Weight Column
-  <ng-container matColumnDef="present">
-    <mat-header-cell  *matHeaderCellDef> Present </mat-header-cell>
-    <mat-cell *matCellDef="let element"> <mat-radio-button name="action" value="P"></mat-radio-button> </mat-cell>
-  </ng-container>
-
-   <ng-container matColumnDef="absent">
-    <mat-header-cell  *matHeaderCellDef> Absent </mat-header-cell>
-    <mat-cell *matCellDef="let element"> <mat-radio-button name="action" value="A"></mat-radio-button> </mat-cell>
-  </ng-container>
-
-   <ng-container matColumnDef="leave">
-    <mat-header-cell  *matHeaderCellDef> Leave </mat-header-cell>
-    <mat-cell *matCellDef="let element"> <mat-radio-button name="action" value="L"></mat-radio-button> </mat-cell>
-  </ng-container>
-
- 
-
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;let i= index"></mat-row>
-</mat-table> -->
 <div class="container"
      fxLayout
      fxLayout.xs="column"
@@ -103,7 +56,6 @@
 <div class="button-row">
   	 <button type="submit" mat-stroked-button color="primary">Save</button>
   	  <button mat-raised-button color="primary">Reset</button>
-
   </div></div>
 </form>
 </mat-sidenav-container>
