@@ -31,6 +31,7 @@ import { EditStudentComponent } from './edit-student/edit-student.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { HomeComponent } from './home/home.component';
 import { AttendanceComponent } from './attendance/attendance.component';
+import { AttendanceViewComponent } from './attendance/attendanceView.component';
 
 
 
@@ -84,6 +85,10 @@ const appRoutes: Routes =[
 {
   path : 'attendance',
   component: AttendanceComponent
+},
+{
+  path : 'attendanceView',
+  component: AttendanceViewComponent
 }
 
 ];
@@ -104,7 +109,8 @@ const appRoutes: Routes =[
     BooksComponent,
     ListBookComponent,
     HomeComponent,
-    AttendanceComponent
+    AttendanceComponent,
+    AttendanceViewComponent
 
   ],
   imports: [
