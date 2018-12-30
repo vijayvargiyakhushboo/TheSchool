@@ -56,4 +56,10 @@ constructor(private  httpClient:  HttpClient)
   postLogin(body){
     return this.httpClient.post(`${this.API_URL}`,body,httpOptions)
   }
+  postAttendance(body){
+    return this.httpClient.post(`${this.API_URL}`,body,httpOptions)
+  }
+  deleteRowAttendance(body){
+    return this.httpClient.post(`${this.API_URL}`,body,httpOptions)
+  }
 };
