@@ -3,6 +3,7 @@ import { CLASSES } from '../class';
 import { FormControl,NgForm,Validators } from '@angular/forms';
 import { RestService } from '../rest.service';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -16,8 +17,9 @@ classData = CLASSES;
 classId;
 studentData: any = [];
 attendanceObj;
+delAttendanceObj;
 
-constructor(public rest:RestService,public router:Router){
+constructor(public rest:RestService,public router:Router,public datePipe: DatePipe){
  console.log("class:",this.classData);	
 };
 
@@ -60,12 +62,17 @@ public getDate(date): void {
 onRadioClick(index,val,student) {
     this.studentData[index].action = val;
     console.log("student:",student);
+    let date = this.datePipe.transform(new Date(), 'yyyy-MM-dd') ;
     let keys = ['date','class','roll_number','action'];
-    let values = [new Date(),student.class,student.roll_number,student.action];
+    let values = [date,student.class,student.roll_number,student.action];
+    this.delAttendanceObj = {"fn": "deleteRowAttendance","params": ["attendance",[student.roll_number],[date],[student.class] ]};
+	this.rest.deleteRowAttendance(this.delAttendanceObj).subscribe((response) => {
+	});
+
     this.attendanceObj = {"fn": "insert","params": ["attendance",keys,values]};
 	this.rest.postAttendance(this.attendanceObj).subscribe((response) => {
-		//alert("attendance added.")
-		//this.router.navigate(['/liststudent']);
+		/*alert("attendance added.")
+		this.router.navigate(['/liststudent']);*/
 		});
     }
 }
