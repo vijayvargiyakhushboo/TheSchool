@@ -62,4 +62,7 @@ constructor(private  httpClient:  HttpClient)
   deleteRowAttendance(body){
     return this.httpClient.post(`${this.API_URL}`,body,httpOptions)
   }
+  getAttendanceByClass(body){
+    return this.httpClient.post(`${this.API_URL}`,body,httpOptions)  
+  }
 };
