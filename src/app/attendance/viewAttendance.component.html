@@ -15,7 +15,7 @@
   </div>
   <div class="item item-1" fxFlex="15%">
 	<mat-form-field >
-	 <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="searchDate" ngModel #searchDate="ngModel" >
+	 <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="searchDate" ngModel #searchDate="ngModel" (ngModelChange)="getSearchDate($event)" >
   <mat-datepicker-toggle matPrefix [for]="picker">
   </mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
@@ -28,7 +28,7 @@
   <!-- Position Column -->
   <ng-container matColumnDef="roll_number">
             <mat-header-cell *matHeaderCellDef>Roll Number</mat-header-cell>
-            <mat-cell *matCellDef="let element ">{{element.id }} 
+            <mat-cell *matCellDef="let element ">{{element.roll_number }} 
             </mat-cell>
         </ng-container>
 
@@ -46,7 +46,7 @@
 
           <ng-container matColumnDef="action">
             <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
-             <mat-cell *matCellDef="let element" style="font-weight: bold;" [ngStyle]="{'color': element.action == 'A' ? 'red' : element.action == 'L' ? 'yellow' : 'green'}"> {{element.action }} </mat-cell>
+             <mat-cell *matCellDef="let element" style="font-weight: bold;" [ngStyle]="{'color': element.action == 'A' ? 'red' : element.action == 'L' ? 'blue' : 'green'}"> {{element.action }} </mat-cell>
         </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
