@@ -9,7 +9,7 @@ import { RestService } from '../rest.service';
 export class ListBookComponent implements OnInit {
 bookList;
 dataSource ;
-displayedColumns = ['id','book_title','author_name','publication','course_book'];
+displayedColumns = ['id','book_title','author_name','publication','course_book','action'];
 
   constructor( public rest: RestService) {
 

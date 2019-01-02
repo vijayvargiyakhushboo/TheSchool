@@ -32,6 +32,11 @@
     <mat-cell *matCellDef="let element"> {{element.course_book}} </mat-cell>
   </ng-container>
 
+<ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+    <mat-cell [routerLink]="['/bookAdd']" *matCellDef="let element"><mat-icon  matTooltip="Edit Book" matPrefix class="icon">edit</mat-icon> <mat-icon  matTooltip="Delete Book" matPrefix class="icon">delete</mat-icon>  
+            </mat-cell>
+  </ng-container>
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
