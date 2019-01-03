@@ -41,6 +41,8 @@
      <mat-menu #books="matMenu" (mouseleave)="matMenuTrigger1.closeMenu()" [overlapTrigger]="false">
        <button mat-menu-item [routerLink]="['/bookAdd']">Add Books</button>
        <button mat-menu-item [routerLink]="['/bookView']">View Books</button>
+       <button mat-menu-item [routerLink]="['/issueBook']">Add Library</button>
+       <button mat-menu-item [routerLink]="['/issuedBooksView']">View Library</button>
      </mat-menu>
    </li>
 
