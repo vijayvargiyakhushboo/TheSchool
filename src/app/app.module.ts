@@ -6,7 +6,7 @@ import { DatePipe } from '@angular/common';
 
 
 import { AppComponent } from './app.component';
-import { StudentComponent } from './student/student.component';
+import { StudentComponent,SaveDialogContent } from './student/student.component';
 import { LoginComponent } from './login/login.component';
 import { BooksComponent } from './books/book.component';
 import { ListBookComponent } from './books/viewBook.component';
@@ -120,7 +120,8 @@ const appRoutes: Routes =[
     HomeComponent,
     AttendanceComponent,
     AttendanceViewComponent,
-    LibraryComponent
+    LibraryComponent,
+    SaveDialogContent
 
   ],
   imports: [
@@ -159,6 +160,6 @@ const appRoutes: Routes =[
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
-  entryComponents: [DialogContent]
+  entryComponents: [DialogContent,SaveDialogContent]
 })
 export class AppModule { }

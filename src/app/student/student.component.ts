@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { RestService} from '../rest.service';
 import { FormControl,NgForm,Validators } from '@angular/forms';
 import { CLASSES } from '../class';
 import { ActivatedRoute,Router } from '@angular/router';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 
+export interface DialogData {
+  studentId;
+}
 
 @Component({
   selector: 'app-student',
@@ -14,7 +18,7 @@ export class StudentComponent implements OnInit {
 	studentData: any = {};
 	classData = CLASSES ;
 
-  constructor(public rest:RestService,private route: ActivatedRoute,private router: Router) { 
+  constructor(public rest:RestService,private route: ActivatedRoute,private router: Router,public dialog : MatDialog ) { 
   	/*this.rest.getClasses().subscribe((response) => {
     console.log("res KV class: ",response);
     this.classData = response;
@@ -47,10 +51,24 @@ export class StudentComponent implements OnInit {
     }
    	  studentObj = {"fn": "insert","params": ["students",keys,values]};
    	   	this.rest.postStudent(studentObj).subscribe((response) => {
-   		    alert("Student added.");
-           this.router.navigate(['/liststudent']);
+           this.openDialog();
+           console.log("Student added. !!");
   	  });
+       
   	});
 }
 
+openDialog() {
+    const dialogRef = this.dialog.open(SaveDialogContent);
+  }
+
+}
+
+@Component({
+  selector: 'save-dialog',
+  templateUrl: '../save_dialog.html',
+})
+export class SaveDialogContent {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData,public rest: RestService,public router: Router) {}
+  //this.router.navigate(['/liststudent']);
 }
