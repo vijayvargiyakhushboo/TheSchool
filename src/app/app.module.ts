@@ -6,7 +6,7 @@ import { DatePipe } from '@angular/common';
 
 
 import { AppComponent } from './app.component';
-import { StudentComponent } from './student/student.component';
+import { StudentComponent,SaveDialogContent } from './student/student.component';
 import { LoginComponent } from './login/login.component';
 import { BooksComponent } from './books/book.component';
 import { ListBookComponent } from './books/viewBook.component';
@@ -32,6 +32,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { HomeComponent } from './home/home.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { AttendanceViewComponent } from './attendance/attendanceView.component';
+import { LibraryComponent } from './library/library.component';
 
 
 
@@ -89,7 +90,15 @@ const appRoutes: Routes =[
 {
   path : 'attendanceView',
   component: AttendanceViewComponent
-}
+},
+{
+  path : 'issueBook',
+  component: LibraryComponent
+},
+{
+  path : 'issuedBooksView',
+  component: LibraryComponent
+},
 
 ];
 
@@ -110,7 +119,9 @@ const appRoutes: Routes =[
     ListBookComponent,
     HomeComponent,
     AttendanceComponent,
-    AttendanceViewComponent
+    AttendanceViewComponent,
+    LibraryComponent,
+    SaveDialogContent
 
   ],
   imports: [
@@ -149,6 +160,6 @@ const appRoutes: Routes =[
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
-  entryComponents: [DialogContent]
+  entryComponents: [DialogContent,SaveDialogContent]
 })
 export class AppModule { }
