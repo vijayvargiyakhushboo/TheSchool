@@ -1,4 +1,78 @@
 <app-home></app-home>
-<p>
-  receipt Page
-</p>
+<mat-sidenav-container>
+ <form name="studentData" (submit)="submitReceipt(postForm); postForm.reset()" #postForm="ngForm" class="receipt-form">
+<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+
+ <div class="item item-3" fxFlex="15%">
+  	<mat-form-field >
+    <mat-icon matPrefix class="icon">book</mat-icon>
+    <mat-select placeholder="Class"  name="class" ngModel required #class="ngModel" >
+      <mat-option *ngFor="let class of classData;" value="{{class.id}}">{{class.name}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="class.invalid">Please select class.</mat-error>
+  </mat-form-field>
+  </div>
+
+  <div class="item item-1" fxFlex="15%">
+  	 <mat-form-field class="navigation-items">
+  	 <mat-label>Student Name</mat-label>       
+  	<mat-icon matPrefix class="icon">face</mat-icon>
+    <input matInput value="" name="first_name" ngModel required minlength="4" #first_name="ngModel">
+    <mat-error *ngIf="first_name.invalid">Please enter first name.</mat-error>
+  </mat-form-field>
+  </div>
+  <div class="item item-2" fxFlex="15%">
+    <mat-form-field >
+    <mat-icon matPrefix class="icon">perm_identity</mat-icon>
+    <input matInput placeholder="Last Name" name="last_name" ngModel required minlength="5" #last_name="ngModel">
+    <mat-error *ngIf="last_name.invalid">Please enter last name.</mat-error>
+  </mat-form-field>
+  </div>
+
+ 
+</div>
+
+
+
+<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+  
+  <div class="item item-2" fxFlex="15%">
+  	<mat-form-field >
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="date" ngModel required #date="ngModel" >
+  <mat-datepicker-toggle matPrefix [for]="picker">
+    
+  </mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  <mat-error *ngIf="date.invalid">Please enter dob.</mat-error>
+  </mat-form-field>
+  </div>
+
+ 
+
+</div>
+
+<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="left"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+  <div class="button-row">
+  	 <button type="submit" mat-stroked-button color="primary">Save</button>
+  	  <button mat-raised-button color="primary">Reset</button>
+
+  </div>
+  
+
+</div>
+
+</form>
+</mat-sidenav-container>
