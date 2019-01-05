@@ -34,7 +34,7 @@ import { AttendanceComponent } from './attendance/attendance.component';
 import { AttendanceViewComponent } from './attendance/attendanceView.component';
 import { LibraryComponent } from './library/library.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { StudentDetailComponent } from './student/studentDetail.component';
 
 
 
@@ -104,6 +104,10 @@ const appRoutes: Routes =[
   path : 'dashboard',
   component: DashboardComponent
 },
+{
+  path : 'studentDetail/:id',
+  component: StudentDetailComponent
+},
 
 ];
 
@@ -127,7 +131,8 @@ const appRoutes: Routes =[
     AttendanceViewComponent,
     LibraryComponent,
     SaveDialogContent,
-    DashboardComponent
+    DashboardComponent,
+    StudentDetailComponent
 
   ],
   imports: [
