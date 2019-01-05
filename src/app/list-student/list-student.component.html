@@ -10,7 +10,7 @@
 
   <ng-container matColumnDef="first_name">
             <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-            <mat-cell *matCellDef="let element ">{{element.first_name | titlecase }} 
+            <mat-cell  *matCellDef="let element "><a href="" [routerLink]="['/studentDetail',element.id]">{{element.first_name | titlecase }} </a>
             </mat-cell>
         </ng-container>
 
