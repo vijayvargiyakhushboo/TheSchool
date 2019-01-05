@@ -33,6 +33,7 @@ import { HomeComponent } from './home/home.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { AttendanceViewComponent } from './attendance/attendanceView.component';
 import { LibraryComponent } from './library/library.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -99,6 +100,10 @@ const appRoutes: Routes =[
   path : 'issuedBooksView',
   component: LibraryComponent
 },
+{
+  path : 'dashboard',
+  component: DashboardComponent
+},
 
 ];
 
@@ -121,7 +126,8 @@ const appRoutes: Routes =[
     AttendanceComponent,
     AttendanceViewComponent,
     LibraryComponent,
-    SaveDialogContent
+    SaveDialogContent,
+    DashboardComponent
 
   ],
   imports: [
