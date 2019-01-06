@@ -19,7 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule, MatSelectModule,MatDatepickerModule, MatRadioModule, MatNativeDateModule, MatCardModule, MatProgressSpinnerModule, MatMenuModule,MatTabsModule,MatTooltipModule} from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {FormsModule} from "@angular/forms";
+import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 
 import { ListStudentComponent,DialogContent } from './list-student/list-student.component';
 import { MatTableModule} from '@angular/material/table';
@@ -166,7 +166,8 @@ const appRoutes: Routes =[
     MatTableModule,
     MatTooltipModule,
     MatDialogModule,
-    MatExpansionModule
+    MatExpansionModule,
+    ReactiveFormsModule
 
   ],
   providers: [DatePipe],

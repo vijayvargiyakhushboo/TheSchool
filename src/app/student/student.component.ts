@@ -1,9 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { RestService} from '../rest.service';
-import { FormControl,NgForm,Validators } from '@angular/forms';
+import { FormControl,Validators,FormGroup } from '@angular/forms';
 import { CLASSES } from '../class';
 import { ActivatedRoute,Router } from '@angular/router';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
+import { DatePipe } from '@angular/common';
 
 export interface DialogData {
   studentId;
@@ -17,29 +18,60 @@ export interface DialogData {
 export class StudentComponent implements OnInit {
 	studentData: any = {};
 	classData = CLASSES ;
+  form: FormGroup;
 
-  constructor(public rest:RestService,private route: ActivatedRoute,private router: Router,public dialog : MatDialog ) { 
+  constructor(public rest:RestService,private route: ActivatedRoute,private router: Router,public dialog : MatDialog ,public datePipe:DatePipe) { 
   	/*this.rest.getClasses().subscribe((response) => {
     console.log("res KV class: ",response);
     this.classData = response;
     });*/
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.form = new FormGroup({
+      'first_name' : new FormControl(null,{ 
+        validators:[Validators.required, Validators.minLength(3)] 
+      }),
+      'last_name' : new FormControl(null,{ 
+        validators:[Validators.required, Validators.minLength(3)] 
+      }),
+      'father_name' : new FormControl(null,{ 
+        validators:[Validators.required, Validators.minLength(3)] 
+      }),
+      'mother_name' : new FormControl(null,{ 
+        validators:[Validators.required, Validators.minLength(3)] 
+      }),
+      'address' : new FormControl(null,{ 
+        validators:[Validators.required, Validators.minLength(3)] 
+      }),
+       'gender' : new FormControl(null,{ 
+        validators:[Validators.required] 
+      }),
+        'contact_number' : new FormControl(null,{ 
+        validators:[Validators.required, Validators.minLength(3)] 
+      }),
+         'email' : new FormControl(null,{ 
+        validators:[Validators.required, Validators.minLength(3)] 
+      }),
+          'dob' : new FormControl(null,{ 
+        validators:[Validators.required] 
+      }),
+           'class' : new FormControl(null,{ 
+        validators:[Validators.required] 
+      })
+
+    })
+  }
 
   ngOnDestroy() {
     //this.sub.unsubscribe();
   }
 
-  submitStudent(form: NgForm) {
-  	if(form.invalid){
-  		return;
-  	}
-    let keys = Object.keys(form.form.controls);
-    form.value.dob = (form.value.dob).toString();
-    let values = Object.values(form.value);
-    console.log("value: ",values);
-    let classValue = Object.values(form.value.class) ;
+  submitStudent() {
+    let keys = Object.keys(this.form.controls);
+    let values = Object.values(this.form.value);
+   this.form.value.dob= this.datePipe.transform(this.form.value.dob, 'yyyy-MM-dd')
+    let classValue = Object.values(this.form.value.class) ;
     var studentObj;
     keys.push('roll_number');
     let rollNumberObj = {"fn": "selectMaxRollNumber","params":["students","class",classValue ]};
@@ -53,6 +85,7 @@ export class StudentComponent implements OnInit {
    	   	this.rest.postStudent(studentObj).subscribe((response) => {
            this.openDialog();
            console.log("Student added. !!");
+           this.form.reset();
   	  });
        
   	});
