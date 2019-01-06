@@ -85,8 +85,8 @@ export class StudentComponent implements OnInit {
   submitStudent() {
     let keys = Object.keys(this.form.controls);
     let values = Object.values(this.form.value);
-   this.form.value.dob= this.datePipe.transform(this.form.value.dob, 'yyyy-MM-dd')
-    let classValue = Object.values(this.form.value.class) ;
+   this.form.value.dob= this.datePipe.transform(this.form.value.dob, 'yyyy-MM-dd');
+    let classValue = this.form.value.class;
     var studentObj;
     keys.push('roll_number');
     let rollNumberObj = {"fn": "selectMaxRollNumber","params":["students","class",classValue ]};
