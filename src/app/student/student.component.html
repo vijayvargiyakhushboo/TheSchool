@@ -39,7 +39,10 @@
   </div>
   <div class="item item-1" fxFlex="15%">
     <button mat-stroked-button  type="button" color="primary" (click)="filePicker.click()">Pick Image</button>
-    <input type="file"  style="display: none;" #filePicker>
+    <input type="file"  style="display: none;" #filePicker (change)="onImagePicked($event)">
+  </div>
+  <div class="image-preview" *ngIf="imagePreview !='' && imagePreview">
+    <img [src]="imagePreview" [alt]="form.value.first_name">
   </div>
 </div>
 

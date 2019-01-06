@@ -19,6 +19,7 @@ export class StudentComponent implements OnInit {
 	studentData: any = {};
 	classData = CLASSES ;
   form: FormGroup;
+  imagePreview: string;
 
   constructor(public rest:RestService,private route: ActivatedRoute,private router: Router,public dialog : MatDialog ,public datePipe:DatePipe) { 
   	/*this.rest.getClasses().subscribe((response) => {
@@ -58,7 +59,10 @@ export class StudentComponent implements OnInit {
       }),
            'class' : new FormControl(null,{ 
         validators:[Validators.required] 
-      })
+      }),
+           'image' : new FormControl(null,{
+             validators:[Validators.required]
+           })
 
     })
   }
@@ -66,6 +70,17 @@ export class StudentComponent implements OnInit {
   ngOnDestroy() {
     //this.sub.unsubscribe();
   }
+ onImagePicked(event:Event){
+   const file = (event.target as HTMLInputElement).files[0];
+   this.form.patchValue({image:file});
+   this.form.get('image').updateValueAndValidity();
+   const reader = new FileReader();
+   reader.onload = () => {
+     this.imagePreview = reader.result;
+   };
+   reader.readAsDataURL(file);
+
+ }
 
   submitStudent() {
     let keys = Object.keys(this.form.controls);
