@@ -22,6 +22,25 @@
  
 	</mat-form-field>
   </div>
+
+  <div class="item item-1" fxFlex="15%">
+  <mat-form-field >
+    <input matInput type="text" name="present" value="Present- {{presentAction}}">
+  </mat-form-field>
+  </div>
+
+  <div class="item item-1" fxFlex="15%">
+  <mat-form-field >
+    <input matInput type="text" name="absent" value="Leave- {{leaveAction}}">
+  </mat-form-field>
+  </div>
+
+  <div class="item item-1" fxFlex="15%">
+  <mat-form-field >
+    <input matInput type="text" name="leave" value="Absent- {{absentAction}}">
+  </mat-form-field>
+  </div>
+
 </div></mat-sidenav-container>
 <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
 
