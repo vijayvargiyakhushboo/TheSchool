@@ -30,37 +30,37 @@ export class StudentComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      'first_name' : new FormControl(null,{ 
+      'first_name' : new FormControl('',{ 
         validators:[Validators.required, Validators.minLength(3)] 
       }),
-      'last_name' : new FormControl(null,{ 
+      'last_name' : new FormControl('',{ 
         validators:[Validators.required, Validators.minLength(3)] 
       }),
-      'father_name' : new FormControl(null,{ 
+      'father_name' : new FormControl('',{ 
         validators:[Validators.required, Validators.minLength(3)] 
       }),
-      'mother_name' : new FormControl(null,{ 
+      'mother_name' : new FormControl('',{ 
         validators:[Validators.required, Validators.minLength(3)] 
       }),
-      'address' : new FormControl(null,{ 
+      'address' : new FormControl('',{ 
         validators:[Validators.required, Validators.minLength(3)] 
       }),
-       'gender' : new FormControl(null,{ 
+       'gender' : new FormControl('',{ 
         validators:[Validators.required] 
       }),
-        'contact_number' : new FormControl(null,{ 
+        'contact_number' : new FormControl('',{ 
         validators:[Validators.required, Validators.minLength(3)] 
       }),
-         'email' : new FormControl(null,{ 
+         'email' : new FormControl('',{ 
         validators:[Validators.required, Validators.minLength(3)] 
       }),
-          'dob' : new FormControl(null,{ 
+          'dob' : new FormControl('',{ 
         validators:[Validators.required] 
       }),
-           'class' : new FormControl(null,{ 
+           'class' : new FormControl('',{ 
         validators:[Validators.required] 
       }),
-           'image' : new FormControl(null,{
+           'image' : new FormControl('',{
              validators:[Validators.required]
            })
 
