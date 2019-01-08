@@ -14,6 +14,9 @@ export class AttendanceViewComponent {
 	dataSource;
 	displayedColumns = ['roll_number','first_name','last_name','action'];
 	todayDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+	presentAction=0;
+	absentAction=0;
+	leaveAction=0;
 constructor(private rest:RestService,private datePipe:DatePipe){};
 public getClassName(id): void {
 this.classId = id;  
@@ -22,6 +25,19 @@ console.log("getClassName:"+this.todayDate);this.dataSource='';
     this.rest.getAttendanceByClass(classObj).subscribe((response) => {
 		 this.dataSource = response;
 		 console.log("res: ",response);
+		 for(let i=0; i<(response).length; i++){
+		 	if(response[i].action== 'A'){
+		 		this.absentAction += parseInt(1);
+		 	}else if(response[i].action== 'L'){
+		 		this.leaveAction += parseInt(1);
+		 	}else {
+		 		this.presentAction += parseInt(1);
+		 	}
+		 	
+		 }
+		 console.log(this.absentAction );
+		 	console.log(this.leaveAction );
+		 	console.log(this.presentAction );
     	 /*for(let i=0; i<((this.studentData).length ); i++){
            this.studentData[i].action = 'present';
 		 }*/
