@@ -14,33 +14,26 @@ export class AttendanceViewComponent {
 	dataSource;
 	displayedColumns = ['roll_number','first_name','last_name','action'];
 	todayDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-	presentAction=0;
-	absentAction=0;
-	leaveAction=0;
+	presentAction: number =0;
+	absentAction : number =0;
+	leaveAction : number =0;
 constructor(private rest:RestService,private datePipe:DatePipe){};
 public getClassName(id): void {
 this.classId = id;  
 console.log("getClassName:"+this.todayDate);this.dataSource='';
     let classObj = { "fn": "selectAttendance","params": ["attendance","students",[this.classId],[this.todayDate] ]};
+    console.log(classObj);
     this.rest.getAttendanceByClass(classObj).subscribe((response) => {
 		 this.dataSource = response;
-		 console.log("res: ",response);
-		 for(let i=0; i<(response).length; i++){
-		 	if(response[i].action== 'A'){
-		 		this.absentAction += parseInt(1);
-		 	}else if(response[i].action== 'L'){
-		 		this.leaveAction += parseInt(1);
+		 for(let i=0; i<=[response].length; i++){
+		 	if(response[i].action == 'A'){
+		 		this.absentAction += parseInt("01");
+		 	}else if(response[i].action == 'L'){
+		 		this.leaveAction += parseInt("01");
 		 	}else {
-		 		this.presentAction += parseInt(1);
+		 		this.presentAction += parseInt("01");
 		 	}
-		 	
 		 }
-		 console.log(this.absentAction );
-		 	console.log(this.leaveAction );
-		 	console.log(this.presentAction );
-    	 /*for(let i=0; i<((this.studentData).length ); i++){
-           this.studentData[i].action = 'present';
-		 }*/
 	});
 }
 public getSearchDate(searchDate): void {
