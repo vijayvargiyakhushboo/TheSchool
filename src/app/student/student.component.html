@@ -23,6 +23,32 @@
   </div>
 
   <div class="item item-2" fxFlex="15%">
+    <mat-form-field >
+    <mat-icon matPrefix class="icon">perm_identity</mat-icon>
+    <input matInput placeholder="Adhaar No" name="adhaar_no" >
+    
+  </mat-form-field>
+  </div>
+
+  <div class="item item-2" fxFlex="15%">
+    <mat-form-field >
+    <mat-icon matPrefix class="icon">perm_identity</mat-icon>
+   <mat-select placeholder="category"  name="category" >
+      <mat-option value="OBC">OBC</mat-option>
+      <mat-option value="Gen">Gen</mat-option>
+      <mat-option value="SC">SC</mat-option>
+      <mat-option value="ST">ST</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+</div>
+
+<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+  <div class="item item-2" fxFlex="15%">
   	<mat-form-field >
     <mat-icon matPrefix class="icon">perm_identity</mat-icon>
     <input matInput placeholder="Father Name" name="father_name" formControlName="father_name">
