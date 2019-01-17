@@ -33,11 +33,35 @@
   <div class="item item-2" fxFlex="15%">
     <mat-form-field >
     <mat-icon matPrefix class="icon">perm_identity</mat-icon>
-   <mat-select placeholder="category"  name="category" >
+   <mat-select placeholder="Category"  name="category" >
       <mat-option value="OBC">OBC</mat-option>
       <mat-option value="Gen">Gen</mat-option>
       <mat-option value="SC">SC</mat-option>
       <mat-option value="ST">ST</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="item item-2" fxFlex="15%">
+    <mat-form-field >
+    <mat-icon matPrefix class="icon">perm_identity</mat-icon>
+   <mat-select placeholder="Religion"  name="religion" >
+      <mat-option value="HINDU">HINDU</mat-option>
+      <mat-option value="MUSLIM">MUSLIM</mat-option>
+      <mat-option value="SIKH">SIKH</mat-option>
+      <mat-option value="CHRISTIAN">CHRISTIAN</mat-option>
+      <mat-option value="BODH">BODH</mat-option>
+      <mat-option value="JAIN">JAIN</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="item item-2" fxFlex="15%">
+    <mat-form-field >
+    <mat-icon matPrefix class="icon">perm_identity</mat-icon>
+   <mat-select placeholder="Handicapped"  name="handicapped" >
+      <mat-option value="YES">Yes</mat-option>
+      <mat-option value="NO">No</mat-option>
     </mat-select>
   </mat-form-field>
 </div>
@@ -56,6 +80,21 @@
   </mat-form-field>
   </div>
 
+  <div class="item item-2" fxFlex="15%">
+    <mat-form-field >
+    <mat-icon matPrefix class="icon">perm_identity</mat-icon>
+    <input matInput placeholder="Father Qualification" name="father_qualification">
+     
+  </mat-form-field>
+  </div>
+
+  <div class="item item-2" fxFlex="15%">
+    <mat-form-field >
+    <mat-icon matPrefix class="icon">perm_identity</mat-icon>
+    <input matInput placeholder="Father Ocupation" name="father_ocupation">
+  </mat-form-field>
+  </div>
+
   <div class="item item-3" fxFlex="15%">
   	<mat-form-field >
     <mat-icon matPrefix class="icon">perm_identity</mat-icon>
@@ -63,13 +102,22 @@
     <mat-error *ngIf="form.get('mother_name').invalid">Please enter mother name.</mat-error>
   </mat-form-field>
   </div>
-  <div class="item item-1" fxFlex="15%">
-    <button mat-stroked-button  type="button" color="primary" (click)="filePicker.click()">Pick Image</button>
-    <input type="file"  style="display: none;" #filePicker (change)="onImagePicked($event)">
+
+  <div class="item item-2" fxFlex="15%">
+    <mat-form-field >
+    <mat-icon matPrefix class="icon">perm_identity</mat-icon>
+    <input matInput placeholder="Mother Qualification" name="mother_qualification">
+     
+  </mat-form-field>
   </div>
-  <div class="image-preview" *ngIf="imagePreview !='' && imagePreview">
-    <img [src]="imagePreview" [alt]="form.value.first_name">
+
+  <div class="item item-2" fxFlex="15%">
+    <mat-form-field >
+    <mat-icon matPrefix class="icon">perm_identity</mat-icon>
+    <input matInput placeholder="Mother Ocupation" name="mother_ocupation">
+  </mat-form-field>
   </div>
+  
 </div>
 
 <div class="container"
@@ -100,12 +148,38 @@
 
   <div class="item item-3" fxFlex="15%">
   	<mat-form-field >
-  		 <mat-label>Phone</mat-label> 
+  		 <mat-label>Phone1</mat-label> 
     <mat-icon matPrefix class="icon">call</mat-icon>
     <input matInput placeholder="Contact" name="contact_number" formControlName="contact_number">
       <mat-error *ngIf="form.get('contact_number').invalid">Please enter contact.</mat-error> 
   </mat-form-field>
   </div>
+
+  <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+       <mat-label>Phone2</mat-label> 
+    <mat-icon matPrefix class="icon">call</mat-icon>
+    <input matInput placeholder="Contact" name="contact_number2" >
+  </mat-form-field>
+  </div>
+
+   <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+       <mat-label>Annual Income</mat-label> 
+    <mat-icon matPrefix class="icon">money</mat-icon>
+    <input matInput placeholder="Income" name="annual-income" >
+  </mat-form-field>
+  </div>
+
+  <div class="item item-2" fxFlex="15%">
+    <mat-form-field >
+    <mat-icon matPrefix class="icon">perm_identity</mat-icon>
+   <mat-select placeholder="minority"  name="minority" >
+      <mat-option value="YES">Yes</mat-option>
+      <mat-option value="NO">No</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
 
 </div>
 
@@ -123,9 +197,19 @@
    
   </mat-form-field>
   </div>
+
+  <div class="item item-2" fxFlex="15%">
+    <mat-form-field >
+    <mat-icon matPrefix class="icon">perm_identity</mat-icon>
+   <mat-select placeholder="Only Child"  name="only_child" >
+      <mat-option value="YES">Yes</mat-option>
+      <mat-option value="NO">No</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
   <div class="item item-2" fxFlex="15%">
   	<mat-form-field >
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="dob" formControlName="dob">
+    <input matInput [matDatepicker]="picker" placeholder="DOB" name="dob" formControlName="dob">
   <mat-datepicker-toggle matPrefix [for]="picker">
     
   </mat-datepicker-toggle>
@@ -143,7 +227,13 @@
      <mat-error *ngIf="form.get('class').invalid">Please select class.</mat-error> 
   </mat-form-field>
   </div>
-
+<div class="item item-1" fxFlex="15%">
+    <button mat-stroked-button  type="button" color="primary" (click)="filePicker.click()">Pick Image</button>
+    <input type="file"  style="display: none;" #filePicker (change)="onImagePicked($event)">
+  </div>
+  <div class="image-preview" *ngIf="imagePreview !='' && imagePreview">
+    <img [src]="imagePreview" [alt]="form.value.first_name">
+  </div>
 </div>
 
 <div class="container"
