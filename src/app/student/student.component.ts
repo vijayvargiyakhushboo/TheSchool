@@ -62,7 +62,22 @@ export class StudentComponent implements OnInit {
       }),
            'image' : new FormControl('',{
              validators:[Validators.required]
-           })
+           }),
+            'adhaar_no' : new FormControl('',{ 
+        validators:[Validators.required, Validators.minLength(10)] 
+      }),
+             'father_ocupation' : new FormControl('',{ 
+        validators:[Validators.required, Validators.minLength(10)] 
+      }),
+             'father_qualification' : new FormControl('',{ 
+        validators:[Validators.required, Validators.minLength(10)] 
+      }),
+             'only_child' : new FormControl('',{ 
+        validators:[Validators.required] 
+      }),
+              'annual-income' : new FormControl('',{ 
+        validators:[Validators.required, Validators.minLength(4)] 
+      }),
 
     })
   }

@@ -25,7 +25,8 @@
   <div class="item item-2" fxFlex="15%">
     <mat-form-field >
     <mat-icon matPrefix class="icon">perm_identity</mat-icon>
-    <input matInput placeholder="Adhaar No" name="adhaar_no" >
+    <input matInput placeholder="Adhaar No" name="adhaar_no" formControlName="adhaar_no">
+     <mat-error *ngIf="form.get('adhaar_no').invalid">Please enter last name.</mat-error> 
     
   </mat-form-field>
   </div>
@@ -83,7 +84,8 @@
   <div class="item item-2" fxFlex="15%">
     <mat-form-field >
     <mat-icon matPrefix class="icon">perm_identity</mat-icon>
-    <input matInput placeholder="Father Qualification" name="father_qualification">
+    <input matInput placeholder="Father Qualification" name="father_qualification" formControlName="father_qualification">
+     <mat-error *ngIf="form.get('father_qualification').invalid">Please enter father Qualification.</mat-error> 
      
   </mat-form-field>
   </div>
@@ -91,7 +93,8 @@
   <div class="item item-2" fxFlex="15%">
     <mat-form-field >
     <mat-icon matPrefix class="icon">perm_identity</mat-icon>
-    <input matInput placeholder="Father Ocupation" name="father_ocupation">
+    <input matInput placeholder="Father Ocupation" name="father_ocupation" formControlName="father_ocupation">
+     <mat-error *ngIf="form.get('father_ocupation').invalid">Please enter father Occupation.</mat-error> 
   </mat-form-field>
   </div>
 
@@ -167,7 +170,8 @@
     <mat-form-field >
        <mat-label>Annual Income</mat-label> 
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput placeholder="Income" name="annual-income" >
+    <input matInput placeholder="Income" name="annual-income" formControlName="annual-income" >
+    <mat-error *ngIf="form.get('annual-income').invalid">Please enter annual income.</mat-error> 
   </mat-form-field>
   </div>
 
@@ -201,10 +205,12 @@
   <div class="item item-2" fxFlex="15%">
     <mat-form-field >
     <mat-icon matPrefix class="icon">perm_identity</mat-icon>
-   <mat-select placeholder="Only Child"  name="only_child" >
+   <mat-select placeholder="Only Child"  name="only_child" formControlName="only_child">
       <mat-option value="YES">Yes</mat-option>
       <mat-option value="NO">No</mat-option>
     </mat-select>
+
+     <mat-error *ngIf="form.get('only_child').invalid">Please enter only_child.</mat-error> 
   </mat-form-field>
 </div>
   <div class="item item-2" fxFlex="15%">
