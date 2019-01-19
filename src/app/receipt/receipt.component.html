@@ -72,7 +72,7 @@
 
   <div class="item item-2" fxFlex="15%">
     <mat-form-field >
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="searchDate" ngModel #searchDate="ngModel" (ngModelChange)="getSearchDate($event)" >
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="searchDate"  value="{{ todayDate }}">
     <mat-datepicker-toggle matPrefix [for]="picker">
     </mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
@@ -197,7 +197,16 @@
   </mat-form-field>
   </div>
 
-  <div class="item item-3" fxFlex="15%">
+  
+ </div>
+
+ <div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+
+     <div class="item item-3" fxFlex="15%">
       <mat-form-field >
       <mat-label>Tuition Fee</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
@@ -212,13 +221,7 @@
       <input matInput value="" name="acti_fee" ngModel required minlength="4" #acti_fee="ngModel">
       </mat-form-field>
       </div>
- </div>
-
- <div class="container"
-     fxLayout
-     fxLayout.xs="column"
-     fxLayoutGap="10px"
-     fxLayoutGap.xs="0">
+      
       <div class="item item-3" fxFlex="15%">
       <mat-form-field >
       <mat-label>Month</mat-label>       
