@@ -1,6 +1,59 @@
 <app-home></app-home>
 <mat-sidenav-container>
- <form name="studentData" #postForm="ngForm" class="receipt-form">
+ <form name="receiptData" #postForm="ngForm" class="receipt-form">
+<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+
+      <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>Session</mat-label>       
+    <mat-icon matPrefix class="icon">face</mat-icon>
+    <input matInput value="" name="session" ngModel required minlength="4" #session="ngModel">
+    <mat-error *ngIf="session.invalid">Please enter first name.</mat-error>
+  </mat-form-field>
+  </div>
+
+    <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>Student Name</mat-label>       
+    <mat-icon matPrefix class="icon">face</mat-icon>
+    <input matInput value="" name="student_name" ngModel required minlength="4" #student_name="ngModel">
+    <mat-error *ngIf="student_name.invalid">Please enter student name.</mat-error>
+  </mat-form-field>
+  </div>
+
+  <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>Mother Name</mat-label>       
+    <mat-icon matPrefix class="icon">face</mat-icon>
+    <input matInput value="" name="mother_name" ngModel required minlength="4" #mother_name="ngModel">
+    <mat-error *ngIf="mother_name.invalid">Please enter mother name.</mat-error>
+  </mat-form-field>
+  </div>
+
+
+  <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>Father Name</mat-label>       
+    <mat-icon matPrefix class="icon">face</mat-icon>
+    <input matInput value="" name="father_name" ngModel required minlength="4" #father_name="ngModel">
+    <mat-error *ngIf="father_name.invalid">Please enter father name.</mat-error>
+  </mat-form-field>
+  </div>
+
+   <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>SNo.</mat-label>       
+    <mat-icon matPrefix class="icon">face</mat-icon>
+    <input matInput value="" name="sno" ngModel required minlength="4" >
+  </mat-form-field>
+  </div>
+</div>
+
+
 <div class="container"
      fxLayout
      fxLayout.xs="column"
@@ -17,23 +70,15 @@
   </mat-form-field>
   </div>
 
-  <div class="item item-1" fxFlex="15%">
-  	 <mat-form-field class="navigation-items">
-  	 <mat-label>Student Name</mat-label>       
-  	<mat-icon matPrefix class="icon">face</mat-icon>
-    <input matInput value="" name="first_name" ngModel required minlength="4" #first_name="ngModel">
-    <mat-error *ngIf="first_name.invalid">Please enter first name.</mat-error>
-  </mat-form-field>
-  </div>
   <div class="item item-2" fxFlex="15%">
     <mat-form-field >
-    <mat-icon matPrefix class="icon">perm_identity</mat-icon>
-    <input matInput placeholder="Last Name" name="last_name" ngModel required minlength="5" #last_name="ngModel">
-    <mat-error *ngIf="last_name.invalid">Please enter last name.</mat-error>
-  </mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="searchDate" ngModel #searchDate="ngModel" (ngModelChange)="getSearchDate($event)" >
+    <mat-datepicker-toggle matPrefix [for]="picker">
+    </mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
   </div>
 
- 
 </div>
 
 
@@ -43,21 +88,61 @@
      fxLayout.xs="column"
      fxLayoutGap="10px"
      fxLayoutGap.xs="0">
-  
-  <div class="item item-2" fxFlex="15%">
-  	<mat-form-field >
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="date" ngModel required #date="ngModel" >
-  <mat-datepicker-toggle matPrefix [for]="picker">
+
+      <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>Session</mat-label>       
+    <mat-icon matPrefix class="icon">money</mat-icon>
+    <input matInput value="" name="pre_bal" ngModel required minlength="4" #pre_bal="ngModel">
     
-  </mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-  <mat-error *ngIf="date.invalid">Please enter dob.</mat-error>
   </mat-form-field>
   </div>
 
- 
+    <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>Form Chargs.</mat-label>       
+    <mat-icon matPrefix class="icon">money</mat-icon>
+    <input matInput value="" name="form_chrgs" ngModel required minlength="4" #form_chrgs="ngModel">
+    
+  </mat-form-field>
+  </div>
 
-</div>
+  <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>Admission Fee</mat-label>       
+    <mat-icon matPrefix class="icon">money</mat-icon>
+    <input matInput value="" name="adm_fee" ngModel required minlength="4" #adm_fee="ngModel">
+    <mat-error *ngIf="adm_fee.invalid">Please enter mother name.</mat-error>
+  </mat-form-field>
+  </div>
+
+
+  <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>Dearness Fee</mat-label>       
+    <mat-icon matPrefix class="icon">money</mat-icon>
+    <input matInput value="" name="dearness_fee" ngModel required minlength="4" #dearness_fee="ngModel">
+    <mat-error *ngIf="dearness_fee.invalid">Please enter father name.</mat-error>
+  </mat-form-field>
+  </div>
+
+   <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>Devlop Fee</mat-label>       
+    <mat-icon matPrefix class="icon">money</mat-icon>
+    <input matInput value="" name="dev_fee" ngModel required minlength="4" >
+  </mat-form-field>
+  </div>
+
+  <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>Electric Fee.</mat-label>       
+    <mat-icon matPrefix class="icon">money</mat-icon>
+    <input matInput value="" name="elec_fee" ngModel required minlength="4" >
+  </mat-form-field>
+  </div>
+
+ </div>
 
 <div class="container"
      fxLayout
@@ -73,6 +158,5 @@
   
 
 </div>
-
 </form>
 </mat-sidenav-container>
