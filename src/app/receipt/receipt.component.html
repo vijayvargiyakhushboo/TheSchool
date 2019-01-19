@@ -72,26 +72,22 @@
 
   <div class="item item-2" fxFlex="15%">
     <mat-form-field >
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="searchDate" ngModel #searchDate="ngModel" (ngModelChange)="getSearchDate($event)" >
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="searchDate"  value="{{ todayDate }}">
     <mat-datepicker-toggle matPrefix [for]="picker">
     </mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
   </div>
-
 </div>
-
-
 
 <div class="container"
      fxLayout
      fxLayout.xs="column"
      fxLayoutGap="10px"
      fxLayoutGap.xs="0">
-
-      <div class="item item-3" fxFlex="15%">
+    <div class="item item-3" fxFlex="15%">
     <mat-form-field >
-    <mat-label>Session</mat-label>       
+    <mat-label>Pre Balance</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
     <input matInput value="" name="pre_bal" ngModel required minlength="4" #pre_bal="ngModel">
     
@@ -143,6 +139,170 @@
   </div>
 
  </div>
+
+ <div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+
+      <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>Library Fee</mat-label>       
+    <mat-icon matPrefix class="icon">money</mat-icon>
+    <input matInput value="" name="lib_fee" ngModel required minlength="4" #lib_fee="ngModel">
+    
+  </mat-form-field>
+  </div>
+
+    <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>Lab Fee</mat-label>       
+    <mat-icon matPrefix class="icon">money</mat-icon>
+    <input matInput value="" name="lab_fee" ngModel required minlength="4" #lab_fee="ngModel">
+    
+  </mat-form-field>
+  </div>
+
+  <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>Music Fee</mat-label>       
+    <mat-icon matPrefix class="icon">money</mat-icon>
+    <input matInput value="" name="music_fee" ngModel required minlength="4" #music_fee="ngModel">
+    
+  </mat-form-field>
+  </div>
+
+  <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>Annual Func Chrgs</mat-label>       
+    <mat-icon matPrefix class="icon">money</mat-icon>
+    <input matInput value="" name="annual_func_fee" ngModel required minlength="4" #annual_func_fee="ngModel">
+  </mat-form-field>
+  </div>
+
+   <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>Exam Fee</mat-label>       
+    <mat-icon matPrefix class="icon">money</mat-icon>
+    <input matInput value="" name="exam_fee" ngModel required minlength="4" >
+  </mat-form-field>
+  </div>
+
+  <div class="item item-3" fxFlex="15%">
+    <mat-form-field >
+    <mat-label>S Class Fee.</mat-label>       
+    <mat-icon matPrefix class="icon">money</mat-icon>
+    <input matInput value="" name="sclass" ngModel required minlength="4" >
+  </mat-form-field>
+  </div>
+
+  
+ </div>
+
+ <div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+
+     <div class="item item-3" fxFlex="15%">
+      <mat-form-field >
+      <mat-label>Tuition Fee</mat-label>       
+      <mat-icon matPrefix class="icon">money</mat-icon>
+      <input matInput value="" name="tution_fee" ngModel required minlength="4" #tution_fee="ngModel">
+      </mat-form-field>
+      </div>
+
+  <div class="item item-3" fxFlex="15%">
+      <mat-form-field >
+      <mat-label>Activity Fee</mat-label>       
+      <mat-icon matPrefix class="icon">money</mat-icon>
+      <input matInput value="" name="acti_fee" ngModel required minlength="4" #acti_fee="ngModel">
+      </mat-form-field>
+      </div>
+      
+      <div class="item item-3" fxFlex="15%">
+      <mat-form-field >
+      <mat-label>Month</mat-label>       
+      <mat-icon matPrefix class="icon">money</mat-icon>
+      <mat-select placeholder="Month" ngModel name="monthName" #monthName="ngModel">
+      <mat-option value="January">January</mat-option>
+      <mat-option value="February">February</mat-option>
+      <mat-option value="March">March</mat-option>
+      <mat-option value="April">April</mat-option>
+      <mat-option value="May">May</mat-option>
+      <mat-option value="June">June</mat-option>
+      <mat-option value="July">July</mat-option>
+      <mat-option value="August">August</mat-option>
+      <mat-option value="September">September</mat-option>
+      <mat-option value="October">October</mat-option>
+      <mat-option value="November">November</mat-option>
+      <mat-option value="December">December</mat-option>
+  </mat-select>
+      </mat-form-field>
+      </div>
+
+        <div class="item item-3" fxFlex="15%">
+      <mat-form-field >
+      <mat-label>Late Fee(if any)</mat-label>       
+      <mat-icon matPrefix class="icon">money</mat-icon>
+      <input matInput value="" name="late_fee" ngModel required minlength="4" #late_fee="ngModel">
+      </mat-form-field>
+      </div>
+</div>
+
+ <div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+      
+       <div class="item item-3" fxFlex="15%">
+      <mat-form-field >
+      <mat-label>Total Amount</mat-label>       
+      <mat-icon matPrefix class="icon">money</mat-icon>
+      <input matInput value="" name="total_amount" ngModel required minlength="4" #total_amount="ngModel">
+      </mat-form-field>
+      </div>
+
+       <div class="item item-3" fxFlex="15%">
+      <mat-form-field >
+      <mat-label>Amount Deposite</mat-label>       
+      <mat-icon matPrefix class="icon">money</mat-icon>
+      <input matInput value="" name="amt_deposite" ngModel required minlength="4" #amt_deposite="ngModel">
+      </mat-form-field>
+      </div>
+
+       <div class="item item-3" fxFlex="15%">
+      <mat-form-field >
+      <mat-label>Balance Amount</mat-label>       
+      <mat-icon matPrefix class="icon">money</mat-icon>
+      <input matInput value="" name="bal_amt" ngModel required minlength="4" #bal_amt="ngModel">
+      </mat-form-field>
+      </div>
+
+       <div class="item item-3" fxFlex="15%">
+      <mat-form-field >
+      <mat-label>Remark</mat-label>       
+      <mat-icon matPrefix class="icon">pencil</mat-icon>
+      <input matInput value="" name="remark" ngModel required minlength="4" #remark="ngModel">
+      </mat-form-field>
+      </div>
+
+       <div class="item item-3" fxFlex="15%">
+      <mat-form-field >
+      <mat-label>Received By</mat-label>       
+      <mat-icon matPrefix class="icon">money</mat-icon>
+       <mat-select placeholder="Received By" ngModel name="received_by" #received_by="ngModel">
+      <mat-option value="Admin">Admin</mat-option>
+      <mat-option value="Sales">Sales</mat-option>
+    </mat-select>
+      </mat-form-field>
+      </div>
+  </div>
+
+
 
 <div class="container"
      fxLayout
