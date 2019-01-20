@@ -66,7 +66,7 @@ export class StudentComponent implements OnInit {
             'adhaar_no' : new FormControl('',{ 
         validators:[Validators.required, Validators.minLength(10)] 
       }),
-             'father_ocupation' : new FormControl('',{ 
+             'father_occupation' : new FormControl('',{ 
         validators:[Validators.required, Validators.minLength(10)] 
       }),
              'father_qualification' : new FormControl('',{ 
