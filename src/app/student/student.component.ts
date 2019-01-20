@@ -75,7 +75,7 @@ export class StudentComponent implements OnInit {
              'only_child' : new FormControl('',{ 
         validators:[Validators.required] 
       }),
-              'annual-income' : new FormControl('',{ 
+              'annual_income' : new FormControl('',{ 
         validators:[Validators.required, Validators.minLength(4)] 
       }),
 
