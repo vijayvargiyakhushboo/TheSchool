@@ -72,7 +72,7 @@
 
   <div class="item item-2" fxFlex="15%">
     <mat-form-field >
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="searchDate"  value="{{ todayDate }}">
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="searchDate" value="{{ todayDate }} ">
     <mat-datepicker-toggle matPrefix [for]="picker">
     </mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
@@ -89,7 +89,7 @@
     <mat-form-field >
     <mat-label>Pre Balance</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput value="" name="pre_bal" ngModel required minlength="4" #pre_bal="ngModel">
+    <input matInput type="number" name="pre_bal" ngModel required minlength="4" #pre_bal="ngModel">
     
   </mat-form-field>
   </div>
@@ -98,7 +98,7 @@
     <mat-form-field >
     <mat-label>Form Chargs.</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput value="" name="form_chrgs" ngModel required minlength="4" #form_chrgs="ngModel">
+    <input matInput type="number" name="form_chrgs" ngModel required minlength="4" #form_chrgs="ngModel">
     
   </mat-form-field>
   </div>
@@ -107,7 +107,7 @@
     <mat-form-field >
     <mat-label>Admission Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput value="" name="adm_fee" ngModel required minlength="4" #adm_fee="ngModel">
+    <input matInput type="number" name="adm_fee" ngModel required minlength="4" #adm_fee="ngModel">
     <mat-error *ngIf="adm_fee.invalid">Please enter mother name.</mat-error>
   </mat-form-field>
   </div>
@@ -117,7 +117,7 @@
     <mat-form-field >
     <mat-label>Dearness Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput value="" name="dearness_fee" ngModel required minlength="4" #dearness_fee="ngModel">
+    <input matInput type="number" name="dearness_fee" ngModel required minlength="4" #dearness_fee="ngModel">
     <mat-error *ngIf="dearness_fee.invalid">Please enter father name.</mat-error>
   </mat-form-field>
   </div>
@@ -126,7 +126,7 @@
     <mat-form-field >
     <mat-label>Devlop Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput value="" name="dev_fee" ngModel required minlength="4" >
+    <input matInput type="number" name="dev_fee" ngModel required minlength="4" >
   </mat-form-field>
   </div>
 
@@ -134,7 +134,7 @@
     <mat-form-field >
     <mat-label>Electric Fee.</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput value="" name="elec_fee" ngModel required minlength="4" >
+    <input matInput type="number" name="elec_fee" ngModel required minlength="4" >
   </mat-form-field>
   </div>
 
@@ -150,7 +150,7 @@
     <mat-form-field >
     <mat-label>Library Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput value="" name="lib_fee" ngModel required minlength="4" #lib_fee="ngModel">
+    <input matInput type="number" name="lib_fee" ngModel required minlength="4" #lib_fee="ngModel">
     
   </mat-form-field>
   </div>
@@ -159,7 +159,7 @@
     <mat-form-field >
     <mat-label>Lab Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput value="" name="lab_fee" ngModel required minlength="4" #lab_fee="ngModel">
+    <input matInput type="number" name="lab_fee" ngModel required minlength="4" #lab_fee="ngModel">
     
   </mat-form-field>
   </div>
@@ -168,7 +168,7 @@
     <mat-form-field >
     <mat-label>Music Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput value="" name="music_fee" ngModel required minlength="4" #music_fee="ngModel">
+    <input matInput type="number" name="music_fee" ngModel required minlength="4" #music_fee="ngModel">
     
   </mat-form-field>
   </div>
@@ -177,7 +177,7 @@
     <mat-form-field >
     <mat-label>Annual Func Chrgs</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput value="" name="annual_func_fee" ngModel required minlength="4" #annual_func_fee="ngModel">
+    <input matInput type="number" name="annual_func_fee" ngModel required minlength="4" #annual_func_fee="ngModel">
   </mat-form-field>
   </div>
 
@@ -185,7 +185,7 @@
     <mat-form-field >
     <mat-label>Exam Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput value="" name="exam_fee" ngModel required minlength="4" >
+    <input matInput type="number" name="exam_fee" ngModel required minlength="4" >
   </mat-form-field>
   </div>
 
@@ -193,7 +193,7 @@
     <mat-form-field >
     <mat-label>S Class Fee.</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput value="" name="sclass" ngModel required minlength="4" >
+    <input matInput type="number" name="sclass" ngModel required minlength="4" >
   </mat-form-field>
   </div>
 
@@ -210,7 +210,7 @@
       <mat-form-field >
       <mat-label>Tuition Fee</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
-      <input matInput value="" name="tution_fee" ngModel required minlength="4" #tution_fee="ngModel">
+      <input matInput type="number" name="tution_fee" ngModel required minlength="4" #tution_fee="ngModel">
       </mat-form-field>
       </div>
 
@@ -218,10 +218,10 @@
       <mat-form-field >
       <mat-label>Activity Fee</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
-      <input matInput value="" name="acti_fee" ngModel required minlength="4" #acti_fee="ngModel">
+      <input matInput type="number" name="acti_fee" ngModel required minlength="4" #acti_fee="ngModel">
       </mat-form-field>
       </div>
-      
+
       <div class="item item-3" fxFlex="15%">
       <mat-form-field >
       <mat-label>Month</mat-label>       
@@ -247,7 +247,7 @@
       <mat-form-field >
       <mat-label>Late Fee(if any)</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
-      <input matInput value="" name="late_fee" ngModel required minlength="4" #late_fee="ngModel">
+      <input matInput type="number" name="late_fee" ngModel required minlength="4" #late_fee="ngModel">
       </mat-form-field>
       </div>
 </div>
@@ -270,7 +270,7 @@
       <mat-form-field >
       <mat-label>Amount Deposite</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
-      <input matInput value="" name="amt_deposite" ngModel required minlength="4" #amt_deposite="ngModel">
+      <input matInput type="number" name="amt_deposite" ngModel required minlength="4" #amt_deposite="ngModel">
       </mat-form-field>
       </div>
 
@@ -278,7 +278,7 @@
       <mat-form-field >
       <mat-label>Balance Amount</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
-      <input matInput value="" name="bal_amt" ngModel required minlength="4" #bal_amt="ngModel">
+      <input matInput type="number" name="bal_amt" ngModel required minlength="4" #bal_amt="ngModel">
       </mat-form-field>
       </div>
 
