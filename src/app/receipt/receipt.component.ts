@@ -48,11 +48,58 @@ export class ReceiptComponent implements OnInit {
   		}),
   		'amt_deposite' : new FormControl('',{
   			validators:[Validators.required]
-  		})
+  		}),
+      'tution_fee' : new FormControl('',{
+        
+      }),
+      'acti_fee' : new FormControl('',{
+        
+      }),     
+      'late_fee' : new FormControl('',{
+        
+      }),      
+      'sclass' : new FormControl('',{
+        
+      }),
+      'exam_fee' : new FormControl('',{
+        
+      }),
+      'annual_func_fee' : new FormControl('',{
+        
+      }),
+      
+      'music_fee' : new FormControl('',{
+        
+      }),
+      
+      'lab_fee' : new FormControl('',{
+        
+      }),
+      
+      'lib_fee' : new FormControl('',{
+        
+      }),
+
+      'elec_fee' : new FormControl('',{
+        
+      }),
+      'dev_fee' : new FormControl('',{
+        
+      }),
+      
+      'form_chrgs' : new FormControl('',{
+        
+      }),
+      'pre_bal' : new FormControl('',{
+        
+      }),
+
   	})
   }
 
   saveStudentFee(){
+    // this.form.get('tution_fee').clearValidators();
+
   	let keys = Object.keys(this.form.controls);
   	let values = Object.values(this.form.value);
   	console.log("keys: ",keys);
