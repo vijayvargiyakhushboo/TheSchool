@@ -89,7 +89,7 @@
     <mat-form-field >
     <mat-label>Pre Balance</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="pre_bal" >
+    <input matInput type="number" name="pre_bal" formControlName="pre_bal" >
     
   </mat-form-field>
   </div>
@@ -98,7 +98,7 @@
     <mat-form-field >
     <mat-label>Form Chargs.</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="form_chrgs" >
+    <input matInput type="number" name="form_chrgs" formControlName="form_chrgs">
     
   </mat-form-field>
   </div>
@@ -126,7 +126,7 @@
     <mat-form-field >
     <mat-label>Devlop Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="dev_fee" >
+    <input matInput type="number" name="dev_fee" formControlName="dev_fee" >
   </mat-form-field>
   </div>
 
@@ -134,7 +134,7 @@
     <mat-form-field >
     <mat-label>Electric Fee.</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="elec_fee" >
+    <input matInput type="number" name="elec_fee" formControlName="elec_fee"> 
   </mat-form-field>
   </div>
 
@@ -150,7 +150,7 @@
     <mat-form-field >
     <mat-label>Library Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="lib_fee" >
+    <input matInput type="number" name="lib_fee" formControlName="lib_fee">
     
   </mat-form-field>
   </div>
@@ -159,7 +159,7 @@
     <mat-form-field >
     <mat-label>Lab Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="lab_fee" >
+    <input matInput type="number" name="lab_fee" formControlName="lab_fee">
     
   </mat-form-field>
   </div>
@@ -168,7 +168,7 @@
     <mat-form-field >
     <mat-label>Music Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="music_fee" >
+    <input matInput type="number" name="music_fee" formControlName="music_fee">
     
   </mat-form-field>
   </div>
@@ -177,7 +177,7 @@
     <mat-form-field >
     <mat-label>Annual Func Chrgs</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="annual_func_fee" >
+    <input matInput type="number" name="annual_func_fee" formControlName="annual_func_fee">
   </mat-form-field>
   </div>
 
@@ -185,7 +185,7 @@
     <mat-form-field >
     <mat-label>Exam Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="exam_fee" >
+    <input matInput type="number" name="exam_fee" formControlName="exam_fee">
   </mat-form-field>
   </div>
 
@@ -193,7 +193,7 @@
     <mat-form-field >
     <mat-label>S Class Fee.</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="sclass" >
+    <input matInput type="number" name="sclass" formControlName="sclass">
   </mat-form-field>
   </div>
 
@@ -210,7 +210,8 @@
       <mat-form-field >
       <mat-label>Tuition Fee</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
-      <input matInput type="number" name="tution_fee" >
+      <input matInput type="number" name="tution_fee" formControlName="tution_fee" >
+      <!-- <mat-error *ngIf="form.get('tution_fee').invalid">Please enter tution fee.</mat-error> -->
       </mat-form-field>
       </div>
 
@@ -218,7 +219,7 @@
       <mat-form-field >
       <mat-label>Activity Fee</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
-      <input matInput type="number" name="acti_fee" >
+      <input matInput type="number" name="acti_fee" formControlName="acti_fee">
       </mat-form-field>
       </div>
 
@@ -247,7 +248,7 @@
       <mat-form-field >
       <mat-label>Late Fee(if any)</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
-      <input matInput type="number" name="late_fee" >
+      <input matInput type="number" name="late_fee" formControlName="late_fee">
       </mat-form-field>
       </div>
 </div>
@@ -270,8 +271,9 @@
        <div class="item item-3" fxFlex="15%">
       <mat-form-field >
       <mat-label>Amount Deposite</mat-label>       
-      <mat-icon matPrefix class="icon">money</mat-icon>
-      <input matInput type="number" name="amt_deposite" formControlName="amt_deposite" >
+      <mat-icon matPrefix class="icon">money</mat-icon>      
+      <input matInput type="number" name="amt_deposite" formControlName="amt_deposite" [ngModel] ="form.get('pre_bal').value + form.get('form_chrgs').value +  form.get('adm_fee').value + form.get('dearness_fee').value + form.get('dev_fee').value + form.get('elec_fee').value + form.get('lib_fee').value + form.get('lab_fee').value + form.get('music_fee').value + form.get('annual_func_fee').value + form.get('exam_fee').value + form.get('sclass').value + form.get('tution_fee').value + form.get('acti_fee').value + form.get('late_fee').value" >
+
       <mat-error *ngIf="form.get('amt_deposite').invalid">Please enter total amount.</mat-error>
       </mat-form-field>
       </div>
