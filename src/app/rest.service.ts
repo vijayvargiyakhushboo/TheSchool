@@ -29,13 +29,13 @@ export class RestService {
 constructor(private  httpClient:  HttpClient)
  {}
 	getStudents(){
-		 const body = JSON.stringify({"fn": 'selectAll', "params": ["students"]});
+		 //const body = JSON.stringify({"fn": 'selectAll', "params": ["students"]});
      return firewrap.selectAll('students');
 	    //return  this.httpClient.post(`${this.API_URL}`,body, httpOptions)
 	}
   getBooks(){
-		 const body = JSON.stringify({"fn": 'selectAll', "params": ["books"]});
-	    return  this.httpClient.post(`${this.API_URL}`,body, httpOptions)
+		 //const body = JSON.stringify({"fn": 'selectAll', "params": ["books"]});
+	    return firewrap.selectAll('books');
 	}
 
   postStudent(student) {
@@ -46,8 +46,8 @@ constructor(private  httpClient:  HttpClient)
     return this.httpClient.post(`${this.API_URL}`,bookData, httpOptions)
   }
   getClasses(){
-     const body = JSON.stringify({"fn": 'selectAll', "params": ["class"]});
-      return  this.httpClient.post(`${this.API_URL}`,body, httpOptions)
+     //const body = JSON.stringify({"fn": 'selectAll', "params": ["class"]});
+      return firewrap.selectAll('class');
   }
   getRollNumber(classId){
       return  this.httpClient.post(`${this.API_URL}`,classId, httpOptions)
