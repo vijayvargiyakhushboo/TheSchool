@@ -21,7 +21,7 @@ export class StudentComponent implements OnInit {
   form: FormGroup;
   imagePreview: string;
 
-  constructor(public rest:RestService,private route: ActivatedRoute,private router: Router,public dialog : MatDialog ,public datePipe:DatePipe) { 
+  constructor(public rest:RestService,private route: ActivatedRoute,private router: Router,public dialog : MatDialog ,public datePipe:DatePipe) {
   	/*this.rest.getClasses().subscribe((response) => {
     console.log("res KV class: ",response);
     this.classData = response;
@@ -30,35 +30,35 @@ export class StudentComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      'first_name' : new FormControl('',{ 
-        validators:[Validators.required, Validators.minLength(3)] 
+      'first_name' : new FormControl('',{
+        validators:[Validators.required, Validators.minLength(3)]
       }),
-      'last_name' : new FormControl('',{ 
-        validators:[Validators.required, Validators.minLength(3)] 
+      'last_name' : new FormControl('',{
+        validators:[Validators.required, Validators.minLength(3)]
       }),
-      'father_name' : new FormControl('',{ 
-        validators:[Validators.required, Validators.minLength(3)] 
+      'father_name' : new FormControl('',{
+        validators:[Validators.required, Validators.minLength(3)]
       }),
-      'mother_name' : new FormControl('',{ 
-        validators:[Validators.required, Validators.minLength(3)] 
+      'mother_name' : new FormControl('',{
+        validators:[Validators.required, Validators.minLength(3)]
       }),
-      'address' : new FormControl('',{ 
-        validators:[Validators.required, Validators.minLength(3)] 
+      'address' : new FormControl('',{
+        validators:[Validators.required, Validators.minLength(3)]
       }),
-       'gender' : new FormControl('',{ 
-        validators:[Validators.required] 
+       'gender' : new FormControl('',{
+        validators:[Validators.required]
       }),
-        'contact_number' : new FormControl('',{ 
-        validators:[Validators.required, Validators.minLength(3)] 
+        'contact_number' : new FormControl('',{
+        validators:[Validators.required, Validators.minLength(3)]
       }),
-         'email' : new FormControl('',{ 
-        validators:[Validators.required, Validators.minLength(3)] 
+         'email' : new FormControl('',{
+        validators:[Validators.required, Validators.minLength(3)]
       }),
-          'dob' : new FormControl('',{ 
-        validators:[Validators.required] 
+          'dob' : new FormControl('',{
+        validators:[Validators.required]
       }),
-           'class' : new FormControl('',{ 
-        validators:[Validators.required] 
+           'class' : new FormControl('',{
+        validators:[Validators.required]
       }),
            'image' : new FormControl('',{
              validators:[Validators.required]
@@ -83,27 +83,12 @@ export class StudentComponent implements OnInit {
  }
 
   submitStudent() {
-    let keys = Object.keys(this.form.controls);
-    let values = Object.values(this.form.value);
-   this.form.value.dob= this.datePipe.transform(this.form.value.dob, 'yyyy-MM-dd');
-    let classValue = this.form.value.class;
-    var studentObj;
-    keys.push('roll_number');
-    let rollNumberObj = {"fn": "selectMaxRollNumber","params":["students","class",classValue ]};
-    this.rest.getRollNumber(rollNumberObj).subscribe((response) => {
-    if(response[0]['roll_number'] == null || response[0]['roll_number'] == 'undefined'){
-    values.push(1);
-    }else{
-    values.push(response[0]['roll_number']);
-    }
-   	  studentObj = {"fn": "insert","params": ["students",keys,values]};
-   	   	this.rest.postStudent(studentObj).subscribe((response) => {
-           this.openDialog();
-           console.log("Student added. !!");
-           this.form.reset();
-  	  });
-       
-  	});
+    this.form.value.dob= this.datePipe.transform(this.form.value.dob, 'yyyy-MM-dd');
+	  this.rest.postStudent(this.form.value).then((response) => {
+       this.openDialog();
+       console.log("Student added. !!");
+       this.form.reset();
+    });
 }
 
 openDialog() {
