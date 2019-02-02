@@ -25,7 +25,7 @@
     <mat-error *ngIf="class.invalid">Please select class.</mat-error>
   </mat-form-field>
   </div>
-  
+
     <div class="item item-3" fxFlex="15%">
     <mat-form-field >
     <mat-label>Student Name</mat-label>       
@@ -91,7 +91,7 @@
     <mat-form-field >
     <mat-label>Pre Balance</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="pre_bal" ngModel #pre_bal="ngModel">
+    <input matInput type="number" name="pre_bal" ngModel #pre_bal="ngModel" (ngModelChange)="getDepositeAmt(postForm)">
     
   </mat-form-field>
   </div>
@@ -100,7 +100,7 @@
     <mat-form-field >
     <mat-label>Form Chargs.</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="form_chrgs" ngModel #form_chrgs="ngModel">
+    <input matInput type="number" name="form_chrgs" ngModel #form_chrgs="ngModel" (ngModelChange)="getDepositeAmt(postForm)">
     
   </mat-form-field>
   </div>
@@ -109,7 +109,7 @@
     <mat-form-field >
     <mat-label>Admission Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="adm_fee" ngModel #adm_fee="ngModel" required>
+    <input matInput type="number" name="adm_fee" ngModel #adm_fee="ngModel" required (ngModelChange)="getDepositeAmt(postForm)">
     <mat-error *ngIf="adm_fee.invalid">Please enter Admission Fee.</mat-error>
   </mat-form-field>
   </div>
@@ -119,7 +119,7 @@
     <mat-form-field >
     <mat-label>Dearness Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="dearness_fee" ngModel #dearness_fee="ngModel" required>
+    <input matInput type="number" name="dearness_fee" ngModel #dearness_fee="ngModel" required (ngModelChange)="getDepositeAmt(postForm)">
     <mat-error *ngIf="dearness_fee.invalid">Please enter dearness fee.</mat-error>
   </mat-form-field>
   </div>
@@ -128,7 +128,7 @@
     <mat-form-field >
     <mat-label>Devlop Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="dev_fee" ngModel #dev_fee="ngModel">
+    <input matInput type="number" name="dev_fee" ngModel #dev_fee="ngModel" (ngModelChange)="getDepositeAmt(postForm)">
   </mat-form-field>
   </div>
 
@@ -136,7 +136,7 @@
     <mat-form-field >
     <mat-label>Electric Fee.</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="elec_fee" ngModel #elec_fee="ngModel">
+    <input matInput type="number" name="elec_fee" ngModel #elec_fee="ngModel" (ngModelChange)="getDepositeAmt(postForm)">
   </mat-form-field>
   </div>
 
@@ -152,7 +152,7 @@
     <mat-form-field >
     <mat-label>Library Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="lib_fee" ngModel #lib_fee="ngModel">
+    <input matInput type="number" name="lib_fee" ngModel #lib_fee="ngModel" (ngModelChange)="getDepositeAmt(postForm)">
     
   </mat-form-field>
   </div>
@@ -161,7 +161,7 @@
     <mat-form-field >
     <mat-label>Lab Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="lab_fee" ngModel #lab_fee="ngModel">
+    <input matInput type="number" name="lab_fee" ngModel #lab_fee="ngModel" (ngModelChange)="getDepositeAmt(postForm)">
     
   </mat-form-field>
   </div>
@@ -170,7 +170,7 @@
     <mat-form-field >
     <mat-label>Music Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="music_fee" ngModel #music_fee="ngModel">
+    <input matInput type="number" name="music_fee" ngModel #music_fee="ngModel" (ngModelChange)="getDepositeAmt(postForm)">
     
   </mat-form-field>
   </div>
@@ -179,7 +179,7 @@
     <mat-form-field >
     <mat-label>Annual Func Chrgs</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="annual_func_fee" ngModel #annual_func_fee="ngModel">
+    <input matInput type="number" name="annual_func_fee" ngModel #annual_func_fee="ngModel" (ngModelChange)="getDepositeAmt(postForm)">
   </mat-form-field>
   </div>
 
@@ -187,7 +187,7 @@
     <mat-form-field >
     <mat-label>Exam Fee</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="exam_fee" ngModel #exam_fee="ngModel">
+    <input matInput type="number" name="exam_fee" ngModel #exam_fee="ngModel" (ngModelChange)="getDepositeAmt(postForm)">
   </mat-form-field>
   </div>
 
@@ -195,7 +195,7 @@
     <mat-form-field >
     <mat-label>S Class Fee.</mat-label>       
     <mat-icon matPrefix class="icon">money</mat-icon>
-    <input matInput type="number" name="sclass" ngModel #sclass="ngModel">
+    <input matInput type="number" name="sclass" ngModel #sclass="ngModel" (ngModelChange)="getDepositeAmt(postForm)">
   </mat-form-field>
   </div>
 
@@ -212,7 +212,7 @@
       <mat-form-field >
       <mat-label>Tuition Fee</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
-      <input matInput type="number" name="tution_fee" ngModel #tution_fee="ngModel">
+      <input matInput type="number" name="tution_fee" ngModel #tution_fee="ngModel" (ngModelChange)="getDepositeAmt(postForm)">
       <!-- <mat-error *ngIf="form.get('tution_fee').invalid">Please enter tution fee.</mat-error> -->
       </mat-form-field>
       </div>
@@ -221,7 +221,7 @@
       <mat-form-field >
       <mat-label>Activity Fee</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
-      <input matInput type="number" name="acti_fee" ngModel #acti_fee="ngModel">
+      <input matInput type="number" name="acti_fee" ngModel #acti_fee="ngModel" (ngModelChange)="getDepositeAmt(postForm)">
       </mat-form-field>
       </div>
 
@@ -249,8 +249,8 @@
         <div class="item item-3" fxFlex="15%">
       <mat-form-field >
       <mat-label>Late Fee(if any)</mat-label>       
-      <mat-icon matPrefix class="icon">money</mat-icon>
-      <input matInput type="number" name="late_fee" ngModel #late_fee="ngModel">
+      <mat-icon matPrefix class="icon">money</mat-icon> 
+      <input matInput type="number" name="late_fee" ngModel #late_fee="ngModel" (ngModelChange)="getDepositeAmt(postForm)">
       </mat-form-field>
       </div>
 </div>
@@ -265,7 +265,7 @@
       <mat-form-field >
       <mat-label>Total Amount</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
-      <input matInput name="total_amount" ngModel #total_amount="ngModel" required>
+      <input matInput type="number" name="total_amount" ngModel #total_amount="ngModel" required>
       <mat-error *ngIf="total_amount.invalid">Please enter total amount.</mat-error>
       </mat-form-field>
       </div>
@@ -274,7 +274,7 @@
       <mat-form-field >
       <mat-label>Amount Deposite</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
-      <input matInput type="number" name="amt_deposite" ngModel  #amt_deposite="ngModel" required>
+      <input matInput type="number" name="amt_deposite" [(ngModel)]="sum" readonly #amt_deposite="ngModel" required>
 
       <mat-error *ngIf="amt_deposite.invalid">Please enter total amount.</mat-error>
       </mat-form-field>

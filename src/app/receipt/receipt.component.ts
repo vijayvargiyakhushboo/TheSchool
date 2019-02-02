@@ -29,14 +29,66 @@ export class ReceiptComponent implements OnInit {
     if(form.invalid){
     return;
     }
-let deposit_amt = +(form.controls.pre_bal.value ) + (form.controls.form_chrgs.value) + (form.controls.adm_fee.value) + (form.controls.dearness_fee.value)
- + (form.controls.elec_fee.value) + (form.controls.lib_fee.value) + (form.controls.lab_fee.value) + (form.controls.music_fee.value) 
- + (form.controls.annual_func_fee.value) + (form.controls.exam_fee.value) + (form.controls.sclass.value) + (form.controls.tution_fee.value)  + (form.controls.acti_fee.value)  + (form.controls.late_fee.value)  ;
   	let keys = Object.keys(form.controls);
-    form.value.amt_deposite= deposit_amt;
     let values = Object.values(form.value);
   	console.log("keys: ",keys);
   	console.log("values: ",values);
+  }
+
+  getDepositeAmt(formData){
+   console.log("val:",formData);
+   console.log(formData.controls.pre_bal.value);
+   console.log(formData.controls.form_chrgs.value);
+     if(formData.controls.pre_bal.value == ''){
+       formData.controls.pre_bal.value =0;
+     }
+     if(formData.controls.form_chrgs.value == ''){
+       formData.controls.form_chrgs.value = 0;
+     }
+     if(formData.controls.adm_fee.value == ''){
+       formData.controls.adm_fee.value = 0;
+     }
+     if(formData.controls.dearness_fee.value == ''){
+       formData.controls.dearness_fee.value = 0;
+     }
+    if(formData.controls.dev_fee.value == ''){
+       formData.controls.dev_fee.value = 0;
+     }
+     if(formData.controls.elec_fee.value == ''){
+       formData.controls.elec_fee.value = 0;
+     }
+     if(formData.controls.lib_fee.value == ''){
+       formData.controls.lib_fee.value = 0;
+     }
+     if(formData.controls.lab_fee.value == ''){
+       formData.controls.lab_fee.value = 0;
+     }
+     if(formData.controls.music_fee.value == ''){
+       formData.controls.music_fee.value = 0;
+     }
+     if(formData.controls.annual_func_fee.value == ''){
+       formData.controls.annual_func_fee.value = 0;
+     }
+     if(formData.controls.exam_fee.value == ''){
+       formData.controls.exam_fee.value = 0;
+     }
+     if(formData.controls.sclass.value == ''){
+       formData.controls.sclass.value = 0;
+     }
+     if(formData.controls.tution_fee.value == ''){
+       formData.controls.tution_fee.value = 0;
+     }
+
+     if(formData.controls.acti_fee.value == ''){
+       formData.controls.acti_fee.value = 0;
+     }
+     if(formData.controls.late_fee.value == ''){
+       formData.controls.late_fee.value = 0;
+     }
+      let depositeAmt = +(formData.controls.pre_bal.value ) + (formData.controls.form_chrgs.value) + (formData.controls.adm_fee.value) + (formData.controls.dearness_fee.value)  + (formData.controls.dev_fee.value)
+     + (formData.controls.elec_fee.value) + (formData.controls.lib_fee.value) + (formData.controls.lab_fee.value) + (formData.controls.music_fee.value) 
+     + (formData.controls.annual_func_fee.value) + (formData.controls.exam_fee.value) + (formData.controls.sclass.value) + (formData.controls.tution_fee.value)  + (formData.controls.acti_fee.value)  + (formData.controls.late_fee.value);
+     this.sum = depositeAmt;
   }
 
 }
