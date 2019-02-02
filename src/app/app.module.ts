@@ -36,6 +36,8 @@ import { LibraryComponent } from './library/library.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentDetailComponent } from './student/studentDetail.component';
 import { ListReceiptComponent } from './receipt/list-receipt.component';
+import { EditReceiptComponent } from './receipt/edit-receipt.commponent';
+
 
 
 
@@ -72,6 +74,9 @@ const appRoutes: Routes =[
 {
   path : 'receiptList',
   component: ListReceiptComponent
+},
+{ path: 'editReceipt/:id', 
+  component: EditReceiptComponent 
 },
 {
   path : 'bookAdd',
@@ -134,7 +139,8 @@ const appRoutes: Routes =[
     SaveDialogContent,
     DashboardComponent,
     StudentDetailComponent,
-    ListReceiptComponent
+    ListReceiptComponent,
+    EditReceiptComponent
 
   ],
   imports: [

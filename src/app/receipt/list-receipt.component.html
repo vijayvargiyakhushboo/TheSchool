@@ -142,7 +142,7 @@
 
         <ng-container matColumnDef="uId">
             <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
-            <mat-cell [routerLink]="['/student',element.uId]" *matCellDef="let element"><mat-icon  matTooltip="Edit Student" matPrefix class="icon">edit</mat-icon> <mat-icon (click)="openDialog(element)" matTooltip="Delete Student" matPrefix class="icon">delete</mat-icon>
+            <mat-cell [routerLink]="['/editReceipt',element.uId]" *matCellDef="let element"><mat-icon  matTooltip="Edit Receipt" matPrefix class="icon">edit</mat-icon> <mat-icon (click)="openDialog(element)" matTooltip="Delete Receipt" matPrefix class="icon">delete</mat-icon>
             </mat-cell>
         </ng-container>
 

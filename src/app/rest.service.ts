@@ -52,6 +52,9 @@ constructor(private  httpClient:  HttpClient)
      return firewrap.selectAll('receipt');
       //return  this.httpClient.post(`${this.API_URL}`,body, httpOptions)
   }
+  getReceiptById(id){
+    return firewrap.selectAllById('receipt',id);
+  }
   postBook(bookData) {
     return this.httpClient.post(`${this.API_URL}`,bookData, httpOptions)
   }

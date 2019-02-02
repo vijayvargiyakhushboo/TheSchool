@@ -81,4 +81,19 @@ export class FirebaseWrapper {
     return p;
   }
 
+  selectAllById(tableName,id){
+    let p = new Promise( (resolve, reject)=>{
+      this.fireStore.collection(tableName).where('uId', '==', id).get()
+      .then((snapshots) => {
+        /*let rows = []
+        snapshots.forEach((doc) => {*/
+          let data = doc.data();
+         // rows.push(data)
+        //})
+        resolve(data)
+      })
+    });
+    return p;
+  }
+
 }
