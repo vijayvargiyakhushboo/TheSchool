@@ -74,7 +74,7 @@
 
   <div class="item item-2" fxFlex="15%">
     <mat-form-field >
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="searchDate" value="{{ todayDate }}">
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="searchDate" [(ngModel)]="todayDate" #searchDate="ngModel" >
     <mat-datepicker-toggle matPrefix [for]="picker">
     </mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
@@ -229,7 +229,7 @@
       <mat-form-field >
       <mat-label>Month</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
-      <mat-select placeholder="Month" name="monthName" >
+      <mat-select placeholder="Month" name="monthName"  ngModel #monthName="ngModel">
       <mat-option value="January">January</mat-option>
       <mat-option value="February">February</mat-option>
       <mat-option value="March">March</mat-option>
@@ -275,7 +275,6 @@
       <mat-label>Amount Deposite</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
       <input matInput type="number" name="amt_deposite" [(ngModel)]="sum" readonly #amt_deposite="ngModel" required>
-
       <mat-error *ngIf="amt_deposite.invalid">Please enter total amount.</mat-error>
       </mat-form-field>
       </div>
@@ -292,7 +291,7 @@
       <mat-form-field >
       <mat-label>Remark</mat-label>       
       <mat-icon matPrefix class="icon">pencil</mat-icon>
-      <input matInput  name="remark" >
+      <input matInput  name="remark" ngModel #remark="ngModel">
       </mat-form-field>
       </div>
 
@@ -300,7 +299,7 @@
       <mat-form-field >
       <mat-label>Received By</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
-       <mat-select placeholder="Received By" name="received_by">
+       <mat-select placeholder="Received By" name="received_by" ngModel #received_by="ngModel">
       <mat-option value="Admin">Admin</mat-option>
       <mat-option value="Sales">Sales</mat-option>
     </mat-select>

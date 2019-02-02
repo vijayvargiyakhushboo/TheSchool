@@ -12,26 +12,16 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router,private api:RestService) { }
 
-  ngOnInit() {
-  }
-getLoggedIn(form:NgForm){
-	if(form.invalid){
-		return;
-	}
-	let value = Object.values(form.value);
-  	let  loginObj = { "fn": "selectLoginInfo","params": ["login", value[0], value[1]] };
-  	this.api.postLogin(loginObj).subscribe((response)=>{
-  	console.log(value[0]+" "+value[1]);
-	console.log("response: ",response[0]);
-	//console.log("response: "+response[0].id);
+  ngOnInit() { }
 
-	if(response[0].user_email == value[0] && response[0].password == value[1] ){
-		alert("success login");
-		this.router.navigateByUrl('/home');
-	}else{
-		console.log("login failed");
-	    //this.router.navigate(['./login']);
-	}
-	});
-}
+  getLoggedIn(form:NgForm){
+  	if(form.invalid){
+  		return;
+  	}
+
+    this.api.postLogin(form.value).then((response)=>{
+  	     console.log("response: ",response);
+         this.router.navigateByUrl('/home');
+  	});
+  }
 }

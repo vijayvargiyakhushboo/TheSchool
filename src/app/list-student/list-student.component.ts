@@ -15,18 +15,19 @@ export interface DialogData {
 export class ListStudentComponent implements OnInit {
 studentList;
 dataSource ;
-displayedColumns = ['roll_number','first_name','father_name','mother_name','class','dob','id'];
+displayedColumns = ['roll_number','first_name','father_name','mother_name','class','dob','uId'];
 
   constructor( public rest: RestService, public dialog: MatDialog) {
-    
+
   var student = {
   "fn":"selectAll",
   "params":["students"]
   }
-this.rest.getStudents().subscribe((response) => {
+this.rest.getStudents().then((response) => {
     console.log("res KV: ",response);
     this.dataSource = response ;
     this.studentList = response;
+    console.log("dataSource :",this.dataSource);
 });
  }
  openDialog(studentData) {
@@ -58,9 +59,9 @@ export class DialogContent {
    let  studentObj = {"fn": "deleteRowById","params": ["students",id]};
      this.rest.postStudent(studentObj).subscribe((response) => {
        alert("Student deleted.");
-       this.rest.getStudents().subscribe((response) => {
+       this.rest.getStudents().then((response) => {
     console.log("res KV: ",response);
-    
+
 });
        this.router.navigate(['/liststudent']);
     });
