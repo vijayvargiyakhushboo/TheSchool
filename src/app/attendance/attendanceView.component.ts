@@ -5,7 +5,7 @@ import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-attendance-view',
-  templateUrl: './viewattendance.component.html',
+  templateUrl: './viewAttendance.component.html',
   styleUrls: ['./attendance.component.css']
 })
 export class AttendanceViewComponent {
@@ -19,7 +19,7 @@ export class AttendanceViewComponent {
 	leaveAction : number =0;
 constructor(private rest:RestService,private datePipe:DatePipe){};
 public getClassName(id): void {
-this.classId = id;  
+this.classId = id;
 console.log("getClassName:"+this.todayDate);this.dataSource='';
     let classObj = { "fn": "selectAttendance","params": ["attendance","students",[this.classId],[this.todayDate] ]};
     console.log(classObj);
