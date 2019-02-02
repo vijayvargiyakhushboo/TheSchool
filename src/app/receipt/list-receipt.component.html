@@ -1,0 +1,152 @@
+<app-home></app-home>
+<p>Receipt list works</p>
+<mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="session">
+            <mat-header-cell *matHeaderCellDef>Session</mat-header-cell>
+            <mat-cell *matCellDef="let element ">{{element.session }} 
+            </mat-cell>
+        </ng-container>
+
+  <ng-container matColumnDef="class">
+            <mat-header-cell *matHeaderCellDef>Class</mat-header-cell>
+            <mat-cell  *matCellDef="let element ">{{element.class | titlecase }} 
+            </mat-cell>
+        </ng-container>
+
+  <!-- Name Column -->
+   <ng-container matColumnDef="student_name">
+    <mat-header-cell *matHeaderCellDef> Student Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.student_name | titlecase }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="father_name">
+    <mat-header-cell *matHeaderCellDef> Father Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.father_name | titlecase }} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="mother_name">
+    <mat-header-cell  *matHeaderCellDef> Mother Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.mother_name | titlecase }} </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="total_amount">
+    <mat-header-cell *matHeaderCellDef> Total Fee </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.total_amount}} </mat-cell>
+  </ng-container>
+
+<ng-container matColumnDef="amt_deposite">
+            <mat-header-cell *matHeaderCellDef>Amount Deposite</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.amt_deposite }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="pre_bal">
+            <mat-header-cell *matHeaderCellDef>Pre Balance</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.pre_bal }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="bal_amount">
+            <mat-header-cell *matHeaderCellDef>Balance Amount</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.bal_amount }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="annual_func_fee">
+            <mat-header-cell *matHeaderCellDef>Annual Func Fee</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.annual_func_fee }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="dearness_fee">
+            <mat-header-cell *matHeaderCellDef>Dearness Fee</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.dearness_fee }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="dev_fee">
+            <mat-header-cell *matHeaderCellDef>Dev Fee</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.dev_fee }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="elec_fee">
+            <mat-header-cell *matHeaderCellDef>Elec. Fee</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.elec_fee }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="exam_fee">
+            <mat-header-cell *matHeaderCellDef>Exam Fee</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.exam_fee }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="form_chrgs">
+            <mat-header-cell *matHeaderCellDef>Form Chargs</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.form_chrgs }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="lab_fee">
+            <mat-header-cell *matHeaderCellDef>Lab Fee</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.lab_fee }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="lib_fee">
+            <mat-header-cell *matHeaderCellDef>Lib Fee</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.lib_fee }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="monthName">
+            <mat-header-cell *matHeaderCellDef>month Name</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.monthName }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="music_fee">
+            <mat-header-cell *matHeaderCellDef>Music Fee</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.music_fee }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="received_by">
+            <mat-header-cell *matHeaderCellDef>Received By</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.received_by }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="remark">
+            <mat-header-cell *matHeaderCellDef>Remark</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.remark }}
+            </mat-cell>
+        </ng-container>
+
+         <ng-container matColumnDef="sclass">
+            <mat-header-cell *matHeaderCellDef>Sclass</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.sclass }}
+            </mat-cell>
+        </ng-container>
+
+         <ng-container matColumnDef="searchDate">
+            <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+            <mat-cell *matCellDef="let element ">  {{ element.searchDate }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="uId">
+            <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+            <mat-cell [routerLink]="['/student',element.uId]" *matCellDef="let element"><mat-icon  matTooltip="Edit Student" matPrefix class="icon">edit</mat-icon> <mat-icon (click)="openDialog(element)" matTooltip="Delete Student" matPrefix class="icon">delete</mat-icon>
+            </mat-cell>
+        </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<router-outlet></router-outlet>
