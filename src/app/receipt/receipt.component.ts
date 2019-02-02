@@ -18,7 +18,7 @@ export class ReceiptComponent implements OnInit {
 
 	todayDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
   form: FormGroup;
-  constructor(public datePipe : DatePipe) { 
+  constructor(public datePipe : DatePipe,public rest: RestService) { 
   	console.log("date: "+(new Date()) );
     }
 
@@ -29,10 +29,16 @@ export class ReceiptComponent implements OnInit {
     if(form.invalid){
     return;
     }
-  	let keys = Object.keys(form.controls);
-    let values = Object.values(form.value);
-  	console.log("keys: ",keys);
-  	console.log("values: ",values);
+  	/*let keys = Object.keys(form.controls);
+    let values = Object.values(form.value);*/
+    console.log("form: ",form.value);
+  	
+    this.rest.postReceipt(form.value).then((response) => {
+      console.log("post 1");
+       alert("Receipt added. !!");
+       
+    });
+
   }
 
   getDepositeAmt(formData){

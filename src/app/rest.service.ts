@@ -42,6 +42,11 @@ constructor(private  httpClient:  HttpClient)
     return firewrap.addStudent(student);
     //return this.httpClient.post(`${this.API_URL}`,studentData, httpOptions)
   }
+  postReceipt(receiptDate) {
+    console.log("rest postReceipt");
+    return firewrap.addReceipt(receiptDate);
+    //return this.httpClient.post(`${this.API_URL}`,studentData, httpOptions)
+  }
   postBook(bookData) {
     return this.httpClient.post(`${this.API_URL}`,bookData, httpOptions)
   }

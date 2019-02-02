@@ -44,6 +44,14 @@ export class FirebaseWrapper {
     })
   }
 
+  addReceipt(receipt){
+    let uId = this.uuidv4();
+      receipt.uId = uId;
+      console.log("firebase: ",receipt);
+      return this.fireStore.collection('receipt').doc(uId).set(receipt)
+
+  }
+
   selectAll(tableName){
     let p = new Promise( (resolve, reject)=>{
       this.fireStore.collection(tableName).get()
