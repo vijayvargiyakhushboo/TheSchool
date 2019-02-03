@@ -74,7 +74,7 @@ export class FirebaseWrapper {
     return p;
   }
 
-  update(tableName ='', docName, data){
+  update(tableName, docName, data){
     let p = new Promise( (resolve, reject)=>{
       resolve(this.fireStore.collection(tableName).doc(docName).update(data));
     });

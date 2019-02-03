@@ -45,7 +45,7 @@ updateStudentFee(form: NgForm){
 		form.controls.amt_deposite.value = this.sum;
 	}
 	console.log("update form2: ",form);
-	this.rest.updateReceipt(this.edirReceiptId,form.value).then((response) => {
+	this.rest.update('receipt',this.edirReceiptId,form.value).then((response) => {
        alert("Receipt added. !!");
     });
 }
