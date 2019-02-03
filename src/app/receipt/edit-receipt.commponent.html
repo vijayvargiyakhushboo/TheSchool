@@ -273,7 +273,7 @@
       <mat-form-field >
       <mat-label>Amount Deposite</mat-label>       
       <mat-icon matPrefix class="icon">money</mat-icon>
-      <input matInput type="number" name="amt_deposite" [(ngModel)]="receipt.amt_deposite" readonly #amt_deposite="ngModel" required>
+      <input matInput type="number" name="amt_deposite" [(ngModel)]="receipt.amt_deposite" #amt_deposite="ngModel" required>
       <mat-error *ngIf="amt_deposite.invalid">Please enter total amount.</mat-error>
       </mat-form-field>
       </div>
