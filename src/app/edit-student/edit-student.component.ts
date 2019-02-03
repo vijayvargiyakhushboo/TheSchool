@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class EditStudentComponent implements OnInit {
     studentData: any = {};
-    studentId;
+    editStudentId;
 	private sub: any;
     editStudentData;
     classData = CLASSES ;
@@ -22,17 +22,16 @@ export class EditStudentComponent implements OnInit {
   constructor(public rest: RestService,private route:  ActivatedRoute,private router: Router) { }
 
   ngOnInit() {
-  	this.sub = this.route.params.subscribe(params => {
-        let studentObj = {"fn": "selectAllById","params": ["students",['id'],[params['id']]]};
-        this.rest.getStudentsById(studentObj).subscribe((response) => {
-        console.log("edit stud response: "+(response[0]['dob']));
-        let dateOld: Date = new Date(response[0]['dob']);
-        console.log("kk: "+dateOld);
-        console.log("data: ",response);
-        this.editStudentData = response;
-        this.studentId = params['id'];
-        });
-  	});
+  	
+     this.sub = this.route.params.subscribe(params => {
+    console.log("std id: "+[params['id']]);
+    this.editStudentId = params['id'];
+    this.rest.getStudentsById(params['id']).then((response) => {
+    console.log("res KV: ",response);
+    this.studentData = response ;
+    console.log("studentData edit :",this.studentData);
+    });
+  });
   }
 
    submitEditStudent(form: NgForm) {
@@ -44,19 +43,10 @@ export class EditStudentComponent implements OnInit {
     //form.value.dob = (form.value.dob).toString();
     let values = Object.values(form.value);
     //let classValue = Object.values(form.value.class) ;
-    console.log("keys: ",keys);
-    console.log("values: ",values);
-    let editStudentObj;
-    keys.push('roll_number');
-    editStudentObj = {"fn": "update","params":["students",keys,values,'id',this.studentId]};
-    this.rest.postEditStudent(editStudentObj).subscribe((response) => {
-    alert("Student updated.");
-    this.router.navigate(['/liststudent']);
+    this.rest.update('students',this.editStudentId,form.value).then((response) => {
+       alert("Student Edited !!");
+       this.router.navigate(['/liststudent']);
     });
+  }
 }
 
-goto(){
-  this.router.navigate(['/liststudent']);
-}
-
-}
