@@ -55,8 +55,11 @@ constructor(private  httpClient:  HttpClient)
   getReceiptById(id){
     return firewrap.selectAllById('receipt',id);
   }
-  updateReceipt(id,data){
-    return firewrap.update('receipt',id,data);
+  update(tableName,id,data){
+    return firewrap.update(tableName,id,data);
+  }
+  getStudentsById(id){
+      return firewrap.selectAllById('students',id);
   }
   postBook(bookData) {
     return this.httpClient.post(`${this.API_URL}`,bookData, httpOptions)
@@ -68,9 +71,7 @@ constructor(private  httpClient:  HttpClient)
   getRollNumber(classId){
       return  this.httpClient.post(`${this.API_URL}`,classId, httpOptions)
   }
-  getStudentsById(body){
-      return  this.httpClient.post(`${this.API_URL}`,body, httpOptions)
-  }
+  
   postEditStudent(editStudentData){
       return this.httpClient.post(`${this.API_URL}`,editStudentData,httpOptions)
   }
