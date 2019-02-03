@@ -85,12 +85,12 @@ export class FirebaseWrapper {
     let p = new Promise( (resolve, reject)=>{
       this.fireStore.collection(tableName).where('uId', '==', id).get()
       .then((snapshots) => {
-        /*let rows = []
-        snapshots.forEach((doc) => {*/
+        let rows = []
+        snapshots.forEach((doc) => {
           let data = doc.data();
-         // rows.push(data)
-        //})
-        resolve(data)
+          rows.push(data)
+        })
+        resolve(rows)
       })
     });
     return p;

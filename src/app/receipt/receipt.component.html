@@ -58,7 +58,7 @@
     <mat-form-field >
     <mat-label>SNo.</mat-label>       
     <mat-icon matPrefix class="icon">face</mat-icon>
-    <input matInput name="sno" >
+    <input matInput name="sno" ngModel #sno="ngModel" >
   </mat-form-field>
   </div>
 </div>
@@ -74,6 +74,7 @@
 
   <div class="item item-2" fxFlex="15%">
     <mat-form-field >
+    <mat-icon matPrefix class="icon">date_range</mat-icon>
     <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="searchDate" [(ngModel)]="todayDate" #searchDate="ngModel" >
     <mat-datepicker-toggle matPrefix [for]="picker">
     </mat-datepicker-toggle>
