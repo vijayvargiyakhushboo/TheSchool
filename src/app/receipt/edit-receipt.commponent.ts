@@ -17,7 +17,7 @@ export interface DialogData {
 export class EditReceiptComponent implements OnInit {
 editReceiptData ;
 edirReceiptId;
-sum=0;
+sum:number =0;
 private sub : any;
 displayedColumns = ['roll_number','first_name','father_name','mother_name','class','dob','uId'];
 
@@ -42,8 +42,9 @@ updateStudentFee(form: NgForm){
 	console.log("update form: ",form);
 	console.log("id: "+this.edirReceiptId);
 	if(this.sum > 0){
-		
+		form.controls.amt_deposite.value = this.sum;
 	}
+	console.log("update form2: ",form);
 	this.rest.updateReceipt(this.edirReceiptId,form.value).then((response) => {
        alert("Receipt added. !!");
     });
@@ -103,6 +104,8 @@ updateStudentFee(form: NgForm){
      + (formData.controls.elec_fee.value) + (formData.controls.lib_fee.value) + (formData.controls.lab_fee.value) + (formData.controls.music_fee.value) 
      + (formData.controls.annual_func_fee.value) + (formData.controls.exam_fee.value) + (formData.controls.sclass.value) + (formData.controls.tution_fee.value)  + (formData.controls.acti_fee.value)  + (formData.controls.late_fee.value);
      this.sum = depositeAmt;
+     formData.controls.amt_deposite.value = this.sum;
+     console.log("sum:: "+this.sum);
   }
 
 }
