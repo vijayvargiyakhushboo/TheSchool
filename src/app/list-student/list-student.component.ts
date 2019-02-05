@@ -31,15 +31,16 @@ this.rest.getStudents().then((response) => {
 });
  }
  openDialog(studentData) {
-   console.log("studentData: "+studentData.id);
+   console.log("studentData console: ",studentData);
     const dialogRef = this.dialog.open(DialogContent, {
       data: {
-        studentId: studentData.id
+        studentId: studentData.uId
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      console.log("Dialog result: ",result);
     });
   }
 
@@ -56,11 +57,10 @@ export class DialogContent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData,public rest: RestService,private router: Router) {}
   deleteStudent(id) {
    console.log("delete : "+id);
-   let  studentObj = {"fn": "deleteRowById","params": ["students",id]};
-     this.rest.postStudent(studentObj).subscribe((response) => {
+     this.rest.delete("students",id).subscribe((response) => {
        alert("Student deleted.");
        this.rest.getStudents().then((response) => {
-    console.log("res KV: ",response);
+    console.log("res KV getStudents: ",response);
 
 });
        this.router.navigate(['/liststudent']);
