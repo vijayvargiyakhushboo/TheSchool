@@ -21,7 +21,7 @@ sum:number =0;
 private sub : any;
 displayedColumns = ['roll_number','first_name','father_name','mother_name','class','dob','uId'];
 
-  constructor( public rest: RestService, public dialog: MatDialog,public route : ActivatedRoute) {
+  constructor( public rest: RestService, public dialog: MatDialog,public route : ActivatedRoute,public router : Router) {
   }
   ngOnInit(){
   	this.sub = this.route.params.subscribe(params => {
@@ -42,11 +42,13 @@ updateStudentFee(form: NgForm){
 	console.log("update form: ",form);
 	console.log("id: "+this.edirReceiptId);
 	if(this.sum > 0){
-		form.controls.amt_deposite.value = this.sum;
+		//form.controls.amt_deposite.value = this.sum;
+    form.controls.amt_deposite.setValue(this.sum);
 	}
 	console.log("update form2: ",form);
 	this.rest.update('receipt',this.edirReceiptId,form.value).then((response) => {
        alert("Receipt added. !!");
+       this.router.navigate(['/receiptList']);
     });
 }
 
