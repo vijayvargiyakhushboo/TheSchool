@@ -57,7 +57,7 @@ export class DialogContent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData,public rest: RestService,private router: Router) {}
   deleteStudent(id) {
    console.log("delete : "+id);
-     this.rest.delete("students",id).subscribe((response) => {
+     this.rest.delete("students",id).then((response) => {
        alert("Student deleted.");
        this.rest.getStudents().then((response) => {
     console.log("res KV getStudents: ",response);

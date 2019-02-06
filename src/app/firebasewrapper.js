@@ -96,9 +96,9 @@ export class FirebaseWrapper {
     return p;
   }
 
-  dalete(tableName, docName){
+  deleteData(tableName, docName){
     let p = new Promise( (resolve, reject)=>{
-      resolve(this.fireStore.collection(tableName).doc(docName).remove());
+      resolve(this.fireStore.collection(tableName).doc(docName).delete());
     });
     return p;
   }

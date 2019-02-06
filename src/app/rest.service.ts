@@ -59,7 +59,7 @@ constructor(private  httpClient:  HttpClient)
     return firewrap.update(tableName,id,data);
   }
   delete(tableName,id){
-    return firewrap.delete(tableName,id);
+    return firewrap.deleteData(tableName,id);
   }
   getStudentsById(id){
       return firewrap.selectAllById('students',id);
