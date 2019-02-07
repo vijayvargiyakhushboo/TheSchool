@@ -11,7 +11,6 @@ import { LoginComponent } from './login/login.component';
 import { BooksComponent } from './books/book.component';
 import { ListBookComponent } from './books/viewBook.component';
 import { ReceiptComponent } from './receipt/receipt.component';
-import { ReceiptviewComponent } from './receiptview/receiptview.component';
 import { RestService } from './rest.service';
 
 
@@ -128,7 +127,6 @@ const appRoutes: Routes =[
     EditStudentComponent,
 
     ReceiptComponent,
-    ReceiptviewComponent,
     DialogContent,
     BooksComponent,
     ListBookComponent,
