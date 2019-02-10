@@ -1,6 +1,6 @@
-import { Component, OnInit,Inject } from '@angular/core';
+import { Component, OnInit,Inject,ViewChild } from '@angular/core';
 import { RestService } from '../rest.service';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MAT_DIALOG_DATA ,MatTableDataSource,MatSort} from '@angular/material';
 import { Router } from '@angular/router';
 
 export interface DialogData {
@@ -17,21 +17,10 @@ studentList;
 dataSource ;
 displayedColumns = ['roll_number','first_name','father_name','mother_name','class','dob','uId'];
 
-  constructor( public rest: RestService, public dialog: MatDialog) {
 
-  var student = {
-  "fn":"selectAll",
-  "params":["students"]
-  }
-this.rest.getStudents().then((response) => {
-    console.log("res KV: ",response);
-    this.dataSource = response ;
-    this.studentList = response;
-    console.log("dataSource :",this.dataSource);
-});
- }
+  constructor( public rest: RestService, public dialog: MatDialog) {}
  openDialog(studentData) {
-   console.log("studentData console: ",studentData);
+    console.log("studentData console: ",studentData);
     const dialogRef = this.dialog.open(DialogContent, {
       data: {
         studentId: studentData.uId
@@ -44,9 +33,16 @@ this.rest.getStudents().then((response) => {
     });
   }
 
+@ViewChild(MatSort) sort: MatSort;
   ngOnInit() {
+    this.rest.getStudents().then((response) => {
+    console.log("res KV: ",response);
+    this.dataSource = new MatTableDataSource(response);
+    console.log("dataSource mat:",this.dataSource);
+    this.dataSource.sort = this.sort;
+  });
+    
   }
-
 }
 
 @Component({
