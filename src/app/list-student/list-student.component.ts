@@ -43,6 +43,11 @@ displayedColumns = ['roll_number','first_name','father_name','mother_name','clas
   });
     
   }
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
 }
 
 @Component({
