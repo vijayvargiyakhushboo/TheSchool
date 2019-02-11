@@ -78,7 +78,24 @@ export class StudentComponent implements OnInit {
               'annual_income' : new FormControl('',{ 
         validators:[Validators.required, Validators.minLength(4)] 
       }),
-
+               'category' : new FormControl('',{ 
+        validators:[Validators.required] 
+      }),
+        'mother_qualification' : new FormControl('',{ 
+        validators:[Validators.required] 
+      }),
+        'religion' : new FormControl('',{ 
+        validators:[Validators.required] 
+      }),
+        'handicapped' : new FormControl('',{ 
+        validators:[Validators.required] 
+      }),
+         'mother_occupation' : new FormControl('',{ 
+        validators:[Validators.required] 
+      }),
+          'contact_number2' : new FormControl('',{ 
+        validators:[Validators.required] 
+      }),
     })
   }
 

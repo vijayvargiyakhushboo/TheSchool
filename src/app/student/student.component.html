@@ -34,7 +34,7 @@
   <div class="item item-2" fxFlex="15%">
     <mat-form-field >
     <mat-icon matPrefix class="icon">perm_identity</mat-icon>
-   <mat-select placeholder="Category"  name="category" >
+   <mat-select placeholder="Category"  name="category" formControlName="category">
       <mat-option value="OBC">OBC</mat-option>
       <mat-option value="Gen">Gen</mat-option>
       <mat-option value="SC">SC</mat-option>
@@ -46,7 +46,7 @@
 <div class="item item-2" fxFlex="15%">
     <mat-form-field >
     <mat-icon matPrefix class="icon">perm_identity</mat-icon>
-   <mat-select placeholder="Religion"  name="religion" >
+   <mat-select placeholder="Religion"  name="religion" formControlName="religion">
       <mat-option value="HINDU">HINDU</mat-option>
       <mat-option value="MUSLIM">MUSLIM</mat-option>
       <mat-option value="SIKH">SIKH</mat-option>
@@ -60,7 +60,7 @@
 <div class="item item-2" fxFlex="15%">
     <mat-form-field >
     <mat-icon matPrefix class="icon">perm_identity</mat-icon>
-   <mat-select placeholder="Handicapped"  name="handicapped" >
+   <mat-select placeholder="Handicapped"  name="handicapped" formControlName="handicapped">
       <mat-option value="YES">Yes</mat-option>
       <mat-option value="NO">No</mat-option>
     </mat-select>
@@ -110,7 +110,7 @@
     <mat-form-field >
     <mat-icon matPrefix class="icon">perm_identity</mat-icon>
     <input matInput placeholder="Mother Qualification" name="mother_qualification" formControlName="mother_qualification"> 
-     
+    <mat-error *ngIf="form.get('mother_qualification').invalid">Please enter mother qualification.</mat-error> 
   </mat-form-field>
   </div>
 
@@ -162,7 +162,8 @@
     <mat-form-field >
        <mat-label>Phone2</mat-label> 
     <mat-icon matPrefix class="icon">call</mat-icon>
-    <input matInput placeholder="Contact" name="contact_number2" >
+    <input matInput placeholder="Contact" name="contact_number2"  formControlName="contact_number2">
+     <mat-error *ngIf="form.get('contact_number2').invalid">Please enter contact2.</mat-error> 
   </mat-form-field>
   </div>
 
