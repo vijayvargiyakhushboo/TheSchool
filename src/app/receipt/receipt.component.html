@@ -19,7 +19,7 @@
 <div class="item item-3" fxFlex="15%">
     <mat-form-field >
     <mat-icon matPrefix class="icon">book</mat-icon>
-    <mat-select placeholder="Class"  name="class"  ngModel #class="ngModel" required>
+    <mat-select placeholder="Class"  name="class"  ngModel #class="ngModel" (ngModelChange)="getClass(postForm)" required>
       <mat-option *ngFor="let class of classData;" value="{{class.id}}">{{class.name}}</mat-option>
     </mat-select>
     <mat-error *ngIf="class.invalid">Please select class.</mat-error>
@@ -27,12 +27,23 @@
   </div>
 
     <div class="item item-3" fxFlex="15%">
-    <mat-form-field >
+    <!-- <mat-form-field >
     <mat-label>Student Name</mat-label>       
     <mat-icon matPrefix class="icon">face</mat-icon>
     <input matInput name="student_name" ngModel #student_name="ngModel" required>
     <mat-error *ngIf="student_name.invalid">Please enter student name.</mat-error>
+      </mat-form-field> -->
+
+  <mat-form-field class="example-full-width">
+    <input  placeholder="Pick Student"  matInput name="student_name" ngModel #student_name="ngModel" [matAutocomplete]="auto" required>
+    <mat-error *ngIf="student_name.invalid">Please enter student name.</mat-error>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let student of studentList" [value]="student.first_name">
+        {{student.first_name}}
+      </mat-option>
+    </mat-autocomplete>
   </mat-form-field>
+
   </div>
 
   <div class="item item-3" fxFlex="15%">

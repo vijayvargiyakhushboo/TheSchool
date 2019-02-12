@@ -15,6 +15,7 @@ export class ReceiptComponent implements OnInit {
    studentData: any = {};
 	classData = CLASSES ;
   sum;
+  studentList;
 
 	todayDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
   form: FormGroup;
@@ -97,5 +98,15 @@ export class ReceiptComponent implements OnInit {
      + (formData.controls.annual_func_fee.value) + (formData.controls.exam_fee.value) + (formData.controls.sclass.value) + (formData.controls.tution_fee.value)  + (formData.controls.acti_fee.value)  + (formData.controls.late_fee.value);
      this.sum = depositeAmt;
   }
+
+  getClass(formData){
+    let classValue = formData.controls.class.value;
+
+     this.rest.getStudentsByClass(classValue).then((response) => {
+    console.log("res KV: ",response);
+    this.studentList = response;
+
+  });
+}
 
 }

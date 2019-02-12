@@ -103,4 +103,19 @@ export class FirebaseWrapper {
     return p;
   }
 
+  selectAllByClass(tableName,classVal){
+    let p = new Promise( (resolve, reject)=>{
+      this.fireStore.collection(tableName).where('class', '==', classVal).get()
+      .then((snapshots) => {
+        let rows = []
+        snapshots.forEach((doc) => {
+          let data = doc.data();
+          rows.push(data)
+        })
+        resolve(rows)
+      })
+    });
+    return p;
+  }
+
 }
