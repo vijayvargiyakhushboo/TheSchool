@@ -36,6 +36,7 @@ export class ReceiptComponent implements OnInit {
     this.rest.postReceipt(form.value).then((response) => {
       console.log("post 1");
        alert("Receipt added. !!");
+       this.form.reset();
        
     });
 
