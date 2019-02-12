@@ -64,6 +64,12 @@ constructor(private  httpClient:  HttpClient)
   getStudentsById(id){
       return firewrap.selectAllById('students',id);
   }
+
+  getStudentsByClass(classVal){
+     //const body = JSON.stringify({"fn": 'selectAll', "params": ["students"]});
+     return firewrap.selectAllByClass('students',classVal);
+      //return  this.httpClient.post(`${this.API_URL}`,body, httpOptions)
+  }
   postBook(bookData) {
     return this.httpClient.post(`${this.API_URL}`,bookData, httpOptions)
   }
