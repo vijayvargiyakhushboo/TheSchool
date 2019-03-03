@@ -87,11 +87,15 @@ constructor(private  httpClient:  HttpClient)
   postLogin(body){
     return firewrap.login(body);
   }
-  postAttendance(body){
-    return this.httpClient.post(`${this.API_URL}`,body,httpOptions)
+  postAttendance(attendance){
+    return firewrap.addAttendance(attendance);
+    //return this.httpClient.post(`${this.API_URL}`,body,httpOptions)
   }
-  deleteRowAttendance(body){
+  /*deleteRowAttendance(body){
     return this.httpClient.post(`${this.API_URL}`,body,httpOptions)
+  }*/
+   deleteRowAttendance(tableName,rollNumber,date,className){
+    return firewrap.deleteAttendanceData(tableName,rollNumber,date,className);
   }
   getAttendanceByClass(body){
     return this.httpClient.post(`${this.API_URL}`,body,httpOptions)
