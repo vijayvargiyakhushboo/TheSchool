@@ -120,10 +120,27 @@ export class FirebaseWrapper {
 
   deleteAttendanceData(tableName, rollNumber,date,className){
     let p = new Promise( (resolve, reject)=>{
-      resolve(this.fireStore.collection(tableName).doc(docName).delete());
-      resolve(this.fireStore.collection(tableName).where())
+     
+      //resolve(this.fireStore.collection(tableName).where("date", "==", date).where("roll_number", "==", rollNumber).where("class", "==", className).delete());
+      this.fireStore.collection(tableName).where("date", "==", date).where("roll_number", "==", rollNumber).where("class", "==", className).get()
+      .then((snapshots) => {
+        let rows = []
+        snapshots.forEach((doc) => {
+           let data = doc.data();
+          rows.delete(data)
+        })
+        resolve(rows)
+      })
     });
     return p;
+  }
+
+  addAttendance(attendance){
+    let uId = this.uuidv4();
+      attendance.uId = uId;
+      console.log("firebase: ",attendance);
+      return this.fireStore.collection('attendance').doc(uId).set(attendance)
+
   }
 
 }

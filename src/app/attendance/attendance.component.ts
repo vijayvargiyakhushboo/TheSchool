@@ -67,14 +67,16 @@ onRadioClick(index,val,student) {
     let date = this.datePipe.transform(new Date(), 'yyyy-MM-dd') ;
     let keys = ['date','class','roll_number','action'];
     let values = [date,student.class,student.roll_number,student.action];
-    this.delAttendanceObj = {"fn": "deleteRowAttendance","params": ["attendance",[student.roll_number],[date],[student.class] ]};
-	this.rest.deleteRowAttendance(this.delAttendanceObj).subscribe((response) => {
+    //this.delAttendanceObj = {"fn": "deleteRowAttendance","params": ["attendance",[student.roll_number],[date],[student.class] ]};
+	this.rest.deleteRowAttendance("attendance",student.roll_number,date,student.class).then((response) => {
+		console.log("delete attendance: ",response);
 	});
 
-    this.attendanceObj = {"fn": "insert","params": ["attendance",keys,values]};
+   // this.attendanceObj = {"fn": "insert","params": ["attendance",keys,values]};
+    this.attendanceObj = { "date":date,"class":student.class,"roll_number":student.roll_number,"action":student.action };
 	this.rest.postAttendance(this.attendanceObj).subscribe((response) => {
-		/*alert("attendance added.")
-		this.router.navigate(['/liststudent']);*/
+		alert("attendance added.")
+		/*this.router.navigate(['/liststudent']);*/
 		});
     }
 }
