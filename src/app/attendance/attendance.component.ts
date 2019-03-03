@@ -24,12 +24,14 @@ constructor(public rest:RestService,public router:Router,public datePipe: DatePi
 };
 
 public getClassName(id): void {
+	console.log("class name: "+id);
 this.classId = id;  
+console.log("getClassName:"+this.classId);
     let classObj = {"fn": "selectAllById","params": ["students",['class'],[id] ]};
-    this.rest.getStudentsById(classObj).subscribe((response) => {
+    this.rest.getStudentsByClass(this.classId).then((response) => {
 		 this.studentData = response;
     	 for(let i=0; i<((this.studentData).length ); i++){
-           this.studentData[i].action = 'present';
+           this.studentData[i].action = 'P';
 		 }
 	});
 }

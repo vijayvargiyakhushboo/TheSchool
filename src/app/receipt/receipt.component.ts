@@ -109,4 +109,8 @@ export class ReceiptComponent implements OnInit {
   });
 }
 
+getStudentInfo(std){
+  console.log("student:",std);
+}
+
 }
