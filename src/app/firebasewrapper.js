@@ -118,4 +118,12 @@ export class FirebaseWrapper {
     return p;
   }
 
+  deleteAttendanceData(tableName, rollNumber,date,className){
+    let p = new Promise( (resolve, reject)=>{
+      resolve(this.fireStore.collection(tableName).doc(docName).delete());
+      resolve(this.fireStore.collection(tableName).where())
+    });
+    return p;
+  }
+
 }
