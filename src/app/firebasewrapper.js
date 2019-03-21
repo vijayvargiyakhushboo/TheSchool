@@ -29,7 +29,7 @@ export class FirebaseWrapper {
   }
 
   logout(){
-
+     return firebase.auth().signOut();
   }
 
   addStudent(student){

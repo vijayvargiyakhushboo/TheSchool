@@ -37,10 +37,6 @@ import { StudentDetailComponent } from './student/studentDetail.component';
 import { ListReceiptComponent } from './receipt/list-receipt.component';
 import { EditReceiptComponent } from './receipt/edit-receipt.commponent';
 
-
-
-
-
 //import { MatDatepickerModule }  from "@angular/material/datepicker";
 const appRoutes: Routes =[
 {
@@ -116,6 +112,8 @@ const appRoutes: Routes =[
 
 ];
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -176,6 +174,7 @@ const appRoutes: Routes =[
     ReactiveFormsModule,
     MatSortModule,
     MatAutocompleteModule
+   
 
   ],
   providers: [DatePipe],

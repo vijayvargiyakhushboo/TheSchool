@@ -47,12 +47,21 @@
      </mat-menu>
    </li>
 
- <li>
-   <a mat-list-item
+ <li [matMenuTriggerFor]="dashboard" #matMenuTrigger2="matMenuTrigger">
+     <a mat-list-item (mouseenter)="matMenuTrigger2.openMenu()">
+       <mat-icon class="icon">dashboard</mat-icon>&nbsp;
+       <span class="label">Dashboard</span>
+     </a>
+   <!-- <a mat-list-item
    [routerLink]="['/dashboard']">
    <mat-icon class="icon">dashboard</mat-icon>&nbsp;
    <span class="label">Dashboard</span>
- </a>
+ </a> -->
+
+  <mat-menu #dashboard="matMenu" (mouseleave)="matMenuTrigger2.closeMenu()" [overlapTrigger]="false">
+       <button mat-menu-item [routerLink]="['/dashboard']">Dashboard</button>
+       <button mat-menu-item (click)="logout()">Logout</button>
+     </mat-menu>
 </li>
 
  </ul>
