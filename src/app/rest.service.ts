@@ -100,4 +100,8 @@ constructor(private  httpClient:  HttpClient)
   getAttendanceByClass(body){
     return this.httpClient.post(`${this.API_URL}`,body,httpOptions)
   }
+
+  logout() {
+    return firewrap.logout();
+  }
 };
