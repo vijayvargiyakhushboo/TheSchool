@@ -151,15 +151,24 @@ getReceiptSno(receipt){
   }
 
   addFee(fee){
-   /* return this.fireStore.collection('fee').where('class', '==', student.class).get().then((students)=>{
-       return students.size || students.length;
-    })
-    .then((data)=>{
-      data ? (student.roll_number = data +1) : (student.roll_number = 1);*/
       let uId = this.uuidv4();
       fee.uId = uId;
       return this.fireStore.collection('fee').doc(uId).set(fee)
-    //})
+  }
+
+  check(tableName,val){
+      let p = new Promise( (resolve, reject)=>{
+      this.fireStore.collection(tableName).where('class', '==', val).get()
+      .then((snapshots) => {
+        let rows = []
+        snapshots.forEach((doc) => {
+          let data = doc.data();
+          rows.push(data)
+        })
+        resolve(rows)
+      })
+    });
+    return p;
   }
 
 }
