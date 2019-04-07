@@ -13,23 +13,18 @@ export interface DialogData {
   styleUrls: ['./fee-structure.component.css']
 })
 
-
 export class FeeListComponent {
 	displayedColumns = ['class','quaterly_fee','bi_annual_fee','annual_fee','admission_fee','uId'];
 	dataSource ;
 	constructor(private rest: RestService,private spinnerService: Ng4LoadingSpinnerService,public dialog: MatDialog) {}
 
 	openDialog(feeData) {
-    console.log("feeData console: ",feeData);
     const dialogRef = this.dialog.open(FeeDialogContent, {
       data: {
         feeId: feeData.uId
       }
     });
-
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      console.log("Dialog result: ",result);
     });
   }
 
@@ -37,10 +32,7 @@ export class FeeListComponent {
 	ngOnInit() {
     this.spinnerService.show();
     this.rest.getFee().then((response) => {
-    console.log("fee KV: ",response);
-    
     this.dataSource = new MatTableDataSource(response);
-    console.log("dataSource mat:",this.dataSource);
     this.dataSource.sort = this.sort;
     this.spinnerService.hide();
   });
@@ -58,16 +50,15 @@ export class FeeDialogContent {
   @ViewChild(MatSort) sort: MatSort;
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData,public rest: RestService,private router: Router,private spinnerService: Ng4LoadingSpinnerService) {}
   deleteFee(id) {
-   console.log("delete : "+id);
-     this.rest.delete("fee",id).then((response) => {
+       this.rest.delete("fee",id).then((response) => {
        alert("Student deleted.");
        this.spinnerService.show();
+       this.dataSource ='';
        this.rest.getFee().then((response) => {
-    this.dataSource = new MatTableDataSource(response);
-    console.log("dataSource mat:",this.dataSource);
-    this.dataSource.sort = this.sort;
-    this.spinnerService.hide();
-});
+       this.dataSource = new MatTableDataSource(response);
+       this.dataSource.sort = this.sort;
+       this.spinnerService.hide();
+       });
        this.router.navigate(['/feeList']);
     });
   }
