@@ -34,7 +34,7 @@ import { AttendanceViewComponent } from './attendance/attendanceView.component';
 import { LibraryComponent } from './library/library.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentDetailComponent } from './student/studentDetail.component';
-import { ListReceiptComponent } from './receipt/list-receipt.component';
+import { ListReceiptComponent,receiptDialogContent } from './receipt/list-receipt.component';
 import { EditReceiptComponent } from './receipt/edit-receipt.commponent';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { AuthGuard } from './auth/auth.guard';
@@ -150,7 +150,6 @@ const appRoutes: Routes =[
     LoginComponent,
     ListStudentComponent,
 
-    DialogContent,
     EditStudentComponent,
 
     ReceiptComponent,
@@ -169,7 +168,8 @@ const appRoutes: Routes =[
     ReceiptDetailComponent,
     FeeStructureComponent,
     FeeListComponent,
-    FeeDialogContent
+    FeeDialogContent,
+    receiptDialogContent
 
   ],
   imports: [
@@ -214,6 +214,6 @@ const appRoutes: Routes =[
   providers: [DatePipe,
   AuthGuard],
   bootstrap: [AppComponent],
-  entryComponents: [DialogContent,SaveDialogContent,FeeDialogContent]
+  entryComponents: [DialogContent,SaveDialogContent,FeeDialogContent,receiptDialogContent]
 })
 export class AppModule { }
